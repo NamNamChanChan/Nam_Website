@@ -1,0 +1,151 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import IconRss from "@/assets/icons/IconRss.svg";
+import { siteLinks } from "@/data/links";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+const lang = locale === "zh" ? "zh" : "en";
+
+const icons = import.meta.glob<{
+  default: (_props: Record<string, unknown>) => unknown;
+}>("/src/assets/icons/socials/*.svg");
+
+const platformLabels: Record<string, string> = {
+  github: "GitHub",
+  linkedin: "LinkedIn",
+  x: "X (Twitter)",
+  instagram: "Instagram",
+  threads: "Threads",
+  facebook: "Facebook",
+  youtube: "YouTube",
+  mail: t.links.email,
+};
+
+const socialItems = await Promise.all(
+  config.socials.map(async ({ name, url }) => {
+    const mod = await icons[`/src/assets/icons/socials/${name}.svg`]?.();
+    return {
+      name,
+      url,
+      label: platformLabels[name] ?? name,
+      Icon: mod?.default,
+      pending: url === "#",
+    };
+  })
+);
+
+const rssHref = getRelativeLocaleUrl(locale, "rss.xml");
+
+const itemClass =
+  "border-border flex w-full items-center gap-3 rounded-lg border px-4 py-3";
+---
+
+<Layout title={`${t.pages.linksTitle} | ${config.site.title}`}>
+  <Header />
+
+  <Breadcrumb />
+
+  <Main pageTitle={t.pages.linksTitle} pageDesc={t.pages.linksDesc}>
+    <div class="mx-auto flex max-w-xl flex-col gap-8">
+      <section>
+        <h2 class="mb-3 text-lg font-semibold">{t.links.socialsHeading}</h2>
+        <ul class="flex flex-col gap-3">
+          {
+            socialItems.map(({ url, label, Icon, pending }) => (
+              <li>
+                {pending ? (
+                  <div
+                    class:list={[itemClass, "opacity-50"]}
+                    title={t.links.comingSoon}
+                  >
+                    {Icon && (
+                      <Icon class="inline-block size-6 shrink-0 fill-transparent stroke-current stroke-2" />
+                    )}
+                    <span class="font-medium">{label}</span>
+                    <span class="text-muted-foreground ms-auto text-sm">
+                      {t.links.comingSoon}
+                    </span>
+                  </div>
+                ) : (
+                  <a
+                    href={url}
+                    target={url.startsWith("mailto:") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    class:list={[
+                      itemClass,
+                      "hover:border-accent/60 hover:text-accent transition-colors",
+                    ]}
+                  >
+                    {Icon && (
+                      <Icon class="inline-block size-6 shrink-0 fill-transparent stroke-current stroke-2" />
+                    )}
+                    <span class="font-medium">{label}</span>
+                    <span aria-hidden="true" class="ms-auto">
+                      &nearr;
+                    </span>
+                  </a>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-lg font-semibold">{t.links.sitesHeading}</h2>
+        <ul class="flex flex-col gap-3">
+          {
+            siteLinks.map(({ label, url }) => (
+              <li>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class:list={[
+                    itemClass,
+                    "hover:border-accent/60 hover:text-accent transition-colors",
+                  ]}
+                >
+                  <span class="font-medium">{label[lang]}</span>
+                  <span aria-hidden="true" class="ms-auto">
+                    &nearr;
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-lg font-semibold">{t.links.subscribeHeading}</h2>
+        <ul class="flex flex-col gap-3">
+          <li>
+            <a
+              href={rssHref}
+              target="_blank"
+              class:list={[
+                itemClass,
+                "hover:border-accent/60 hover:text-accent transition-colors",
+              ]}
+            >
+              <IconRss class="stroke-accent inline-block size-6 shrink-0 stroke-2" />
+              <span class="font-medium">{t.links.rss}</span>
+              <span aria-hidden="true" class="ms-auto">&nearr;</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </Main>
+
+  <Footer />
+</Layout>

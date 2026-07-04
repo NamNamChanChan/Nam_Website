@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import HomeMain from "@/components/HomeMain.astro";
+import PersonJsonLd from "@/components/PersonJsonLd.astro";
+---
+
+<Layout
+  description="Nam Chan（又名 Alfred Nam）— Wistkey CTO。寫科技、IT、AI、商業、理財與瑜伽。"
+>
+  <PersonJsonLd slot="head" />
+  <Header />
+  <HomeMain />
+  <Footer />
+</Layout>

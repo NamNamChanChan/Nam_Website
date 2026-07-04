@@ -1,0 +1,50 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Card from "@/components/Card.astro";
+import Footer from "@/components/Footer.astro";
+import Pagination from "@/components/Pagination.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import { filterByLang, otherLocale } from "@/utils/locale";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = filterByLang(
+    await getCollection("posts", ({ data }) => !data.draft),
+    "en"
+  );
+  return paginate(getSortedPosts(posts), { pageSize: config.posts.perPage });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+
+// Paginated pages have no 1:1 counterpart in the other locale; send the
+// switcher to the other posts index and emit hreflang only on page 1.
+const altUrl = getRelativeLocaleUrl(otherLocale(locale), "posts");
+const alternateUrl = page.currentPage === 1 ? altUrl : null;
+---
+
+<Layout title={`${t.pages.postsTitle} | ${config.site.title}`} {alternateUrl}>
+  <Header {altUrl} />
+
+  <Breadcrumb />
+
+  <Main pageTitle={t.pages.postsTitle} pageDesc={t.pages.postsDesc}>
+    <ul>
+      {page.data.map(data => <Card {...data} />)}
+    </ul>
+  </Main>
+
+  <Pagination {page} />
+
+  <Footer noMarginTop={page.lastPage > 1} />
+</Layout>

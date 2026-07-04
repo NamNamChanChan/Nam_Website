@@ -1,0 +1,8 @@
+---
+// Thin /zh wrapper: the page reads Astro.currentLocale, so rendering the
+// same component under /zh yields the Chinese version. Pagefind scopes
+// results to the page language (html lang) automatically.
+import SearchPage from "../search.astro";
+---
+
+<SearchPage />
