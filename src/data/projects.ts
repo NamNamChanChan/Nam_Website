@@ -23,7 +23,7 @@ export const projects: Project[] = [
   },
   {
     name: "NamLoop",
-    url: "https://namloop.chankwunnam0304.workers.dev/",
+    url: "https://loop.nam-ai.uk/",
     role: { en: "Side project", zh: "個人項目" },
     description: {
       en: "A tool to put any YouTube video on endless loop — whole clip or a precise A–B segment — with speed control and a queue. Plays through the official YouTube embed, and every setting is shareable by URL.",

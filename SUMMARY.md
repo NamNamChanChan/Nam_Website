@@ -41,7 +41,7 @@
 - **Facebook:** https://www.facebook.com/chankwunnam/
 - **YouTube:** https://www.youtube.com/@londonnam
 - **Email:** nam@wistkey.com
-- **Projects:** Wistkey (wistkey.com), NamLoop (namloop.chankwunnam0304.workers.dev), VitaBaby (vitababy.ai), Baby Growth Percentile Calculator
+- **Projects:** Wistkey (wistkey.com), NamLoop (loop.nam-ai.uk), VitaBaby (vitababy.ai), Baby Growth Percentile Calculator
 
 ## Still pending / needs your input
 

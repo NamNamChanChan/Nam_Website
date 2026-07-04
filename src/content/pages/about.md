@@ -21,7 +21,7 @@ More and more of my time goes into **helping companies adopt AI across the whole
 
 After some years away from hands-on programming, I'm **hooked on it again**. AI has re-empowered the skills I built long ago and, honestly, made coding *physically* more affordable — the long, unbroken hours that get harder to sustain past thirty are no longer the price of shipping something good. That's changed everything about how much I can build.
 
-You'll find what I'm building on the [projects page](/projects) — from [VitaBaby](https://vitababy.ai) to little tools like [NamLoop](https://namloop.chankwunnam0304.workers.dev/).
+You'll find what I'm building on the [projects page](/projects) — from [VitaBaby](https://vitababy.ai) to little tools like [NamLoop](https://loop.nam-ai.uk/).
 
 ## Yoga
 
