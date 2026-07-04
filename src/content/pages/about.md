@@ -1,9 +1,9 @@
 ---
 title: "About"
-description: "Nam Chan, aka Alfred Nam — CTO at Wistkey. Builder, writer, yogi, based between Hong Kong and London."
+description: "Nam Chan, aka Alfred Nam — CTO at Wistkey. AI-adoption partner, programmer, Ashtanga yogi, based between Hong Kong and London."
 ---
 
-<!-- DRAFT: written by Claude from known facts — Nam to review/edit before publishing. -->
+<!-- Personal bio — based on Nam's own notes. Edit freely. -->
 
 Hi — I'm **Nam Chan** (Kwun Nam Chan). Depending on where we met, you might also know me as **Alfred Nam**. I live between **Hong Kong and London**.
 
@@ -15,16 +15,21 @@ I'm the **CTO of [Wistkey](https://wistkey.com)**, where we help businesses actu
 - **Agentic workflow automation** — AI agents that take repetitive operations off people's plates, end to end
 - **Engineering delivery** — on-demand software engineers and dedicated teams that ship real products, across the UK and Hong Kong
 
-Outside the day job I build side projects — like [VitaBaby](https://vitababy.ai), a baby health and growth tracker with free tools for parents. You can find the current list on the [projects page](/projects).
+More and more of my time goes into **helping companies adopt AI across the whole organisation — not just the tech department**. Finance, HR, admin, accounting, operations: every one of these teams has repetitive, rules-based work that AI can take on, and that's often where the fastest wins are. I'm currently deep in **AI applications and agentic workflows**, and when people ask, I **teach on AI topics** too — I genuinely enjoy it.
+
+## Back to code
+
+After some years away from hands-on programming, I'm **hooked on it again**. AI has re-empowered the skills I built long ago and, honestly, made coding *physically* more affordable — the long, unbroken hours that get harder to sustain past thirty are no longer the price of shipping something good. That's changed everything about how much I can build.
+
+You'll find what I'm building on the [projects page](/projects) — from [VitaBaby](https://vitababy.ai) to little tools like [NamLoop](https://namloop.chankwunnam0304.workers.dev/).
+
+## Yoga
+
+I practise **Ashtanga yoga**, five to six mornings a week, at **4am London time in Euston**. It's the discipline that keeps everything else sustainable — body and mind both. Huge thanks to my teachers **Hamish** and **Clayton** for their guidance; the practice I have today is thanks to them. 🙏
 
 ## What I write about
 
-This blog is where I think out loud about:
-
-- **Tech & IT** — engineering, infrastructure, and the craft of shipping software
-- **AI** — practical adoption, on-prem LLMs, agents, and what actually works beyond the hype
-- **Business & finance** — building companies, and making sense of money
-- **Yoga** — the practice that keeps the rest sustainable
+This blog is where I think out loud about **tech, IT, AI, business, finance and yoga** — practical AI adoption and on-prem LLMs, the craft of shipping software, building companies and making sense of money, and the practice that keeps me grounded.
 
 I write in **English and Traditional Chinese** — most posts in one language, some in both. The 中 / EN toggle in the header switches between them.
 

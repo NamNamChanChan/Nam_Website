@@ -38,22 +38,22 @@
 - **X (Twitter):** https://x.com/namchan_hk
 - **Instagram:** https://www.instagram.com/nam.traveling/
 - **Threads:** https://www.threads.com/@nam.traveling
+- **Facebook:** https://www.facebook.com/chankwunnam/
+- **YouTube:** https://www.youtube.com/@londonnam
 - **Email:** nam@wistkey.com
 - **Projects:** Wistkey (wistkey.com), NamLoop (namloop.chankwunnam0304.workers.dev), VitaBaby (vitababy.ai), Baby Growth Percentile Calculator
 
 ## Still pending / needs your input
 
-1. **Facebook & YouTube** — no URLs supplied, so they show as "coming soon" on `/links` and
-   are hidden from the header/footer. Add real URLs in `astro-paper.config.ts` (the `socials`
-   array, replace `"#"`) to activate them, or delete those two lines to drop them entirely.
-2. **Review the drafted content** — the About page and both seed blog posts were written by
-   Claude from known facts and are marked with a `DRAFT` HTML comment. Read/edit before you
-   consider them "yours". Posts:
+1. **Review the seed blog posts** — the two seed posts were drafted from known facts and are
+   marked with a `DRAFT` HTML comment. Read/edit before you consider them "yours":
    - `Hello, world — why this site exists` (EN + 中文)
    - `Why we deploy LLMs on-premises` (EN + 中文)
-3. **Google Search Console** — once live, add your verification string as
+
+   (The About page is now written from your own notes — yoga, coding, cross-department AI work.)
+2. **Google Search Console** — once live, add your verification string as
    `site.googleVerification` in `astro-paper.config.ts`, then submit the sitemap.
-4. **Avatar / headshot** (optional) — not currently used; the design is text-first.
+3. **Avatar / headshot** (optional) — not currently used; the design is text-first.
 
 ---
 

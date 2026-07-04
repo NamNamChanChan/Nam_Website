@@ -34,8 +34,8 @@ export default defineAstroPaperConfig({
     { name: "x", url: "https://x.com/namchan_hk", linkTitle: "Nam Chan on X (Twitter)" },
     { name: "instagram", url: "https://www.instagram.com/nam.traveling/", linkTitle: "Nam Chan on Instagram" },
     { name: "threads", url: "https://www.threads.com/@nam.traveling", linkTitle: "Nam Chan on Threads" },
-    { name: "facebook", url: "#", linkTitle: "Nam Chan on Facebook" }, // TODO(nam): add profile URL
-    { name: "youtube", url: "#", linkTitle: "Nam Chan on YouTube" }, // TODO(nam): add channel URL
+    { name: "facebook", url: "https://www.facebook.com/chankwunnam/", linkTitle: "Nam Chan on Facebook" },
+    { name: "youtube", url: "https://www.youtube.com/@londonnam", linkTitle: "Nam Chan on YouTube" },
     { name: "mail", url: "mailto:nam@wistkey.com", linkTitle: "Email Nam Chan" },
   ],
   shareLinks: [
