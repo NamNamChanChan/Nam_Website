@@ -1,0 +1,12 @@
+{
+  // Deploys the static Astro build in ./dist as Cloudflare Workers static
+  // assets. Its presence stops `wrangler deploy` from trying to auto-add an
+  // SSR adapter (`astro add cloudflare`) — this site is fully static.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nam",
+  "compatibility_date": "2026-07-04",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}

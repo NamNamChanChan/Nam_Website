@@ -57,30 +57,36 @@
 
 ---
 
-## Deploying to Cloudflare Pages
+## Deploying to Cloudflare (Workers, git-connected)
 
-Prerequisites: a Cloudflare account (the same one hosting vitababy.ai works).
+This repo is connected to **Cloudflare Workers Builds** via GitHub
+(`github.com/NamNamChanChan/Nam_Website`, branch `main`). Every push to `main` triggers a
+build (`npm run build`) and deploy (`npx wrangler deploy`).
+
+**`wrangler.jsonc`** in the repo root makes this work: it declares an **assets-only Worker**
+that serves the static `./dist` build directly. Without it, `wrangler deploy` tries to add an
+SSR adapter (`astro add cloudflare`) and fails — this site is fully static, so no adapter.
+
+So to deploy, just:
 
 ```bash
-cd "14_Personal_Website"
-npm run build
-
-# First run opens a browser to authorise Wrangler with your Cloudflare account:
-npx wrangler pages deploy dist --project-name nam-ai
+git push origin main        # Cloudflare rebuilds + redeploys automatically
 ```
 
-This publishes to `https://nam-ai.pages.dev`. Then, to attach the custom domain:
+Attaching the custom domain (one-time):
 
-1. Cloudflare dashboard → **Workers & Pages** → **nam-ai** → **Custom domains** → add `nam-ai.uk`.
-2. If `nam-ai.uk` is already on Cloudflare, the DNS record is created automatically.
-   If it's registered elsewhere, point its nameservers to Cloudflare first (or add the
-   CNAME Cloudflare shows you).
+1. Cloudflare dashboard → **Workers & Pages** → **nam** → **Settings → Domains & Routes** →
+   add `nam-ai.uk`.
+2. If `nam-ai.uk` is already on Cloudflare, the DNS record is created automatically. If it's
+   registered elsewhere, point its nameservers to Cloudflare first (or add the record it shows you).
 
-Every later deploy is just `npm run build && npx wrangler pages deploy dist --project-name nam-ai`.
+**Manual deploy (optional)**, e.g. to publish without a git push:
 
-> Alternative (no CLI): push this folder to a GitHub repo, then in the Cloudflare dashboard
-> create a Pages project connected to it with build command `npm run build` and output dir `dist`.
-> This gives you automatic deploys on every push.
+```bash
+npm run build
+npx wrangler login          # one-time browser auth
+npx wrangler deploy         # uses wrangler.jsonc → assets-only Worker
+```
 
 ---
 
