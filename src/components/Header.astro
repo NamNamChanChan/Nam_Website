@@ -23,7 +23,7 @@ type Props = {
   altUrl?: string;
 };
 
-const { site, features } = config;
+const { features } = config;
 
 const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(locale);
@@ -75,7 +75,7 @@ const isActive = (path: string) => {
         loading="eager"
         class="border-border size-9 shrink-0 rounded-full border object-cover"
       />
-      {site.title}
+      Nam
     </a>
     <nav
       id="nav-menu"
