@@ -5,7 +5,7 @@ description: "Nam Chan, aka Alfred Nam — CTO at Wistkey. AI-adoption partner, 
 
 <!-- Personal bio — based on Nam's own notes. Edit freely. -->
 
-Hi — I'm **Nam Chan** (Kwun Nam Chan). Depending on where we met, you might also know me as **Alfred Nam**. I live between **Hong Kong and London**.
+Hi — I'm **Nam Chan**. Depending on where we met, you might also know me as **Alfred Nam**. I live between **Hong Kong and London**.
 
 ## What I do
 
