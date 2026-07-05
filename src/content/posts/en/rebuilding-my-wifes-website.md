@@ -162,7 +162,37 @@ QA before calling it done: all **815 internal URLs** across the 102 pages checke
 
 *Mobile, before and after.*
 
-The last step is the boring-but-scary one — full WordPress backup, then the DNS flip to Cloudflare, then watching Search Console while the index digests it.
+Then came the boring-but-scary step — full WordPress backup, then the DNS flip to Cloudflare. **The site is live.** Which means the referee I deferred to earlier finally got its say.
+
+### The live scoreboard
+
+Hours before the cutover, we ran PageSpeed Insights against the old site one last time:
+
+![PageSpeed Insights on the old WordPress site: Performance 57, Accessibility 94, Best Practices 100, SEO 85](../../../assets/images/krystle-11-psi-before.jpg)
+
+*The old site, measured live by PSI just before the cutover: 57 / 94 / 100 / 85 — independently confirming what the local audit found.*
+
+And the same test, on the live rebuild:
+
+![PageSpeed Insights on the live rebuilt site, mobile: Performance 90, Accessibility 100, Best Practices 100, SEO 100](../../../assets/images/krystle-12-psi-after-mobile.png)
+
+*Mobile: 90–95 depending on the run (PSI wobbles a few points between runs) — with 0 ms blocking time, 0.005 layout shift, and 100s everywhere else.*
+
+![PageSpeed Insights on the live rebuilt site, desktop: 100 across all categories, FCP 0.3s, LCP 0.6s](../../../assets/images/krystle-13-psi-after-desktop.png)
+
+*Desktop: a straight 100 across the board — first paint 0.3 s, LCP 0.6 s.*
+
+And the phantom 6.5-second LCP from the war story? On the live site, PSI measures mobile LCP at 2.9–3.7 s (a hero photo on a simulated slow phone) and desktop at 0.6 s. The artifact stayed in the lab.
+
+## The quieter win: content you can bulk-edit
+
+There's one more reason leaving WordPress mattered, and it has nothing to do with scores.
+
+Krystle's business is growing, and growth means **bulk changes**: re-categorising a batch of events, swapping a season of photos, adding a stack of new events after a busy quarter. In WordPress + Elementor, that means opening 85 pages one at a time and clicking through a page builder in each — which is why those edits kept *not happening*.
+
+In the rebuild, content is **data**. The 85 events live in JSON files; the pages are stamped by the build script. A bulk change is a search-and-replace — or a five-line script — followed by one build command, and every affected page is re-stamped in seconds, each with its metadata and structured data kept consistent automatically.
+
+The site got faster for visitors. But it also got faster to *change* — and for a growing business, the second one may matter more.
 
 ## What this actually demonstrates
 
