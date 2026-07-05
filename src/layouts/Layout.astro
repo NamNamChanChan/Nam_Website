@@ -140,11 +140,8 @@ const zhHref = locale === "zh" ? canonicalURL : alternateAbs;
     -->
     <script is:inline>
       (function () {
-        const stored = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        const theme = stored ?? (prefersDark ? "dark" : "light");
+        // Default to dark; only switch to light when the user toggles it (persisted).
+        const theme = localStorage.getItem("theme") ?? "dark";
         const root = document.firstElementChild;
         root?.setAttribute("data-theme", theme);
         root?.classList.toggle("dark", theme === "dark");
