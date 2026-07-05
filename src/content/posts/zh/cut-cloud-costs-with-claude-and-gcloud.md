@@ -83,11 +83,11 @@ gcloud recommender recommendations list \
 ```bash
 # 在 Monitoring 確認低使用率、並先做好備份之後：
 gcloud sql backups create --instance=staging-db          # 安全網
-gcloud sql instances patch staging-db --tier=db-custom-2-7680   # 縮小規格，先在這裡測試
+gcloud sql instances patch staging-db --cpu=2 --memory=7680MB   # 縮小規格（自訂 CPU／記憶體），先在這裡測試
 ```
 
 > [!caution] 小心
-> Cloud SQL 改 tier 會觸發一次短暫重啟。先在 staging 證明可行，再把正式環境安排在低流量時段。在非正式環境，把 HA 降成 `--availability-type=ZONAL` 往往是白撿的錢。
+> Cloud SQL 改機型會觸發一次短暫重啟。先在 staging 證明可行，再把正式環境安排在低流量時段。在非正式環境，把 HA 降成 `--availability-type=zonal` 往往是白撿的錢。
 
 ### 縮減並排程 staging
 

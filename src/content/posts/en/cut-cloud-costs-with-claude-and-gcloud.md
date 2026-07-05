@@ -83,11 +83,11 @@ This was the single largest line. The instance had been provisioned for a load p
 ```bash
 # After confirming low utilization in Monitoring, and taking a backup first:
 gcloud sql backups create --instance=staging-db          # safety net
-gcloud sql instances patch staging-db --tier=db-custom-2-7680   # scale down, test here first
+gcloud sql instances patch staging-db --cpu=2 --memory=7680MB   # scale down (custom size), test here first
 ```
 
 > [!CAUTION]
-> A Cloud SQL tier change triggers a brief restart. Prove it on staging, then schedule prod for a low-traffic window. On non-prod, dropping HA (`--availability-type=ZONAL`) is often free money too.
+> A Cloud SQL machine-type change triggers a brief restart. Prove it on staging, then schedule prod for a low-traffic window. On non-prod, dropping HA (`--availability-type=zonal`) is often free money too.
 
 ### Scale down and schedule staging
 
