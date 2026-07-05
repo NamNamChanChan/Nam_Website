@@ -2,24 +2,23 @@
 title: "Cutting our cloud bill 90% with Claude and gcloud — safely"
 description: "An agentic workflow with Claude and the gcloud CLI took our monthly cloud spend from $2,800 to $300 — no code changes, no downtime. The method, and the safety rails that actually matter."
 pubDatetime: 2026-07-05T09:00:00+08:00
-draft: true
+ogImage: ../../../assets/images/cut-cloud-costs-banner.png
+draft: false
 tags:
   - ai
   - tech
   - finance
 ---
 
-<!--
-DRAFT — based on Nam's Threads post (threads.com/@nam.traveling, DZFb_VxEWBh).
-Real numbers from that post: $2,800 → $300/mo, Google Cloud, Cloud SQL right-sizing,
-no code change / no downtime. The staging / log-retention / bandwidth cuts below are
-the common categories Nam listed — verify/adjust each to what you actually did before
-publishing. Remove `draft: true` to publish.
--->
+![Using AI to investigate cloud infrastructure and reduce cloud cost](../../../assets/images/cut-cloud-costs-banner.png)
 
 Last month I took one of our Google Cloud projects from **~$2,800/month to ~$300/month**. That's about **$30,000 a year**, and I did it in an afternoon — sitting next to Claude, driving the `gcloud` CLI.
 
 No code changed. No downtime. Nothing was re-architected.
+
+![Bar chart of daily Google Cloud spend through late May, with the daily bars collapsing after the cleanup](../../../assets/images/cut-cloud-costs-billing.jpg)
+
+*What it looks like in the billing console: daily spend dropping off a cliff once the over-provisioned resources — Cloud SQL, an idle service or two, the usual suspects — were right-sized.*
 
 ## Table of contents
 
