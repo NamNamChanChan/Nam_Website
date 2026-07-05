@@ -31,3 +31,6 @@ public/pagefind
 
 # docker compose
 compose.override.yaml
+
+# Medium copy-paste exports (regenerable from posts via the new-blog-post skill)
+medium-exports/
