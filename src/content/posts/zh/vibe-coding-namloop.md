@@ -93,3 +93,7 @@ NamLoop 是個玩具。而這正是重點。有趣的不是這個工具——而
 如果有件小事你一直沒做，只因為它不值得花一個晚上——現在它可能值得一個週末。做出來吧。
 
 *到 [loop.nam-ai.uk](https://loop.nam-ai.uk) 試玩 NamLoop、看看[原始碼](https://github.com/NamNamChanChan/NamLoop)，或者告訴我你會循環甚麼——[電郵我](mailto:nam@wistkey.com)。*
+
+---
+
+**NamLoop 系列：**第一篇——你在這裡 · [第二篇——git push，就上線了：部署變得有多不可思議地容易](/zh/posts/namloop-part-2-cloudflare-cicd/)。

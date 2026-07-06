@@ -93,3 +93,7 @@ NamLoop is a toy. That's the point. The interesting thing isn't the tool — it'
 If there's a small thing you've been not-building because it wasn't worth the evening — it might be worth a weekend now. Build it.
 
 *Try NamLoop at [loop.nam-ai.uk](https://loop.nam-ai.uk), poke at the [code](https://github.com/NamNamChanChan/NamLoop), or tell me what you'd loop — [email me](mailto:nam@wistkey.com).*
+
+---
+
+**NamLoop series:** Part I — you're here · [Part II — git push, and it's live: how embarrassingly easy deploying became](/posts/namloop-part-2-cloudflare-cicd/).
