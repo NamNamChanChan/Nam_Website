@@ -1,27 +1,43 @@
 ---
-title: "重建太太的網站（二）：SEO 的故事——76 場被藏起的活動，和一個 Google 找不到的名字"
-description: "她的網站把九成作品靜靜藏在一個壞掉的按鈕後面、沒有 meta description、沒有結構化資料——連她自己的中文名字都不在網站上。重建如何把每一頁的 SEO 從 85 帶到 100。"
+title: "重建太太的網站（二）：介面——同樣的設計，一個終於運作的介面"
+description: "krystle.hk 的重建把設計保持到像素級接近，卻換掉了每一個由外掛驅動的互動：沒有 700 KB 輪播的大圖區、一個不可能再藏起活動的作品集、原生 <dialog> 燈箱——還有一個把她名字弄壞的字體 bug。"
 pubDatetime: 2026-07-06T00:20:00+08:00
-ogImage: ../../../assets/images/krystle-seo-banner.png
+ogImage: ../../../assets/images/krystle-ui-banner.png
 draft: false
 tags:
   - tech
   - ai
 ---
 
-![第二篇，SEO 的故事——可見活動 9 到 85、有 JSON-LD 的頁面 0 到 102、Lighthouse SEO 85 到 100](../../../assets/images/krystle-seo-banner.png)
+![第二篇，介面——可見活動 9 到 85、輪播 JS 700KB 到零、燈箱由外掛變原生 dialog](../../../assets/images/krystle-ui-banner.png)
 
-在[第一篇](/zh/posts/rebuilding-my-wifes-website-part-1/)，我們把太太 Krystle 的 WordPress 作品集重建成 102 頁靜態 HTML——首次繪製從 10.3 秒變成 1.7 秒。但速度從來不是審計裡最痛的部分。
+在[第一篇](/zh/posts/rebuilding-my-wifes-website-part-1/)，我們把太太 Krystle 的 WordPress 作品集——**[krystle.hk](https://krystle.hk)**——重建成 102 頁靜態 HTML：架構、數字，和誠實的利弊。
 
-最痛的是：她的網站一直**把 85 場活動中的 76 場靜靜地藏起來**——對每一位訪客，也對每一個要靠 JavaScript 渲染的搜尋引擎。而就算是 Google *看得到*的頁面，也幾乎甚麼都沒告訴它：沒有 meta description、沒有結構化資料、首頁標題只有一個字「Krystle」——而她的中文名字 **張可澄**，在網站上完全不存在。
-
-這是第二篇：甚麼是隱形的、為甚麼，以及重建如何把 **102 頁、每一頁**的 Lighthouse SEO 從 **85 帶到 100**。
+這一篇講你真正*看得到、摸得到*的部分：介面。要求寫明**不重新設計**——同樣的外觀、同樣的排版、同樣的手感。所以這裡的每張截圖都應該看起來很無聊。有趣的是，底下每一個互動都換掉了——包括那個一直把她 85 場活動中的 **76 場**靜靜藏起來的互動。
 
 ## 目錄
 
-## 隱形的作品集
+## 同樣的設計——這正是重點
 
-用真實瀏覽器開著 network 面板逛網站時，有一個請求一直失敗：
+在寫重建的第一行程式碼之前，審計先把設計的 DNA 抽了出來，好讓它被忠實重現：Tiffany 藍綠色 `#81D8D0` 點綴、暖白 `#F2F1EF`、大圖用 Cinzel Decorative、襯線點綴用 Cormorant Infant、標題用 Montserrat、內文用 Noto Sans TC——全站纖細字重加寬字距。
+
+![大圖區：左為 WordPress 原版，右為靜態重建](../../../assets/images/krystle-03-hero-before-after.jpg)
+
+*還原度檢查——左原版，右重建。如果你分不出來，介面的工作就成功了。*
+
+## 大圖區：700 KB 的輪播，換成一張圖
+
+舊的大圖區跑 Slider Revolution——大約 **700 KB 的 JavaScript**，用來顯示⋯⋯一幅靜態構圖。重建版用一張合成圖加 CSS 定位的文字層。零 JavaScript，同樣的畫面。
+
+![重建後的大圖區——用一張合成圖加 HTML 文字層，取代 700 KB 的輪播外掛](../../../assets/images/krystle-04-after-hero.jpg)
+
+*重建後的大圖區。輪播外掛用 700 KB 做的事，`position: absolute` 免費做到。*
+
+捲動進場動畫也是同樣待遇：jQuery + GSAP 變成約 30 行 `IntersectionObserver` 加 CSS transition。
+
+## 那個藏起 76 場活動的作品集
+
+這就是第一篇預告的 bug。用真實瀏覽器開著 network 面板逛舊網站時，有一個請求一直失敗：
 
 `wp-json/cassia/v1/get-posts → 403`
 
@@ -31,35 +47,10 @@ tags:
 
 *每位訪客看到的：九場活動，和一個看起來正常、實際甚麼都不做的 Load More 按鈕。*
 
-> [!warning] 靜默的故障最昂貴
-> 按鈕照樣顯示，畫面沒有任何錯誤。它多半已經壞了很久——而她九成的作品一直是隱形的。如果你的網站靠按鈕或無限捲動載入內容，今天就開一個無痕視窗，親手按一下。
+> [!warning] 靜默的介面故障最昂貴
+> 按鈕照樣顯示，畫面沒有任何錯誤。它多半已經壞了很久——而對一位司儀來說，作品集*就是*銷售簡報：客戶一直只看到九分之一。如果你的網站靠按鈕或無限捲動載入內容，今天就開一個無痕視窗，親手按一下。
 
-對一位司儀來說，作品集*就是*銷售簡報。搜「婚禮司儀」「企業活動司儀」的客戶，只看到九分之一。
-
-## 網站還有甚麼沒告訴 Google
-
-被藏起的活動是最戲劇性的發現，但審計裡的 SEO 清單又長又平凡：
-
-- **任何一頁都沒有 meta description。** 每一條搜尋摘要都由 Google 即興發揮。
-- **沒有 Open Graph、沒有 Twitter cards**——分享出去的連結是一條光禿禿的網址。
-- **完全沒有結構化資料**——沒有 `Person`、沒有 `LocalBusiness`。而這盤生意的全部前提，就是*一個人提供本地服務*。
-- 首頁標題只有 **「Krystle」**。
-- 頁尾 logo 在**每一頁**都連到主題廠商的示範網站——全站向一家模板公司漏出連結權重。
-- 兩個「Read More」按鈕的 href 是**空的**。
-- 示範文章 `hello-world` 仍然在線、可被索引，連同一家沒有商品的商店的購物車和結帳頁。
-- 還有名字的事：任何人搜 **「張可澄 司儀」**——她的真名加職業——都找不到她，因為「張可澄」三個字不在網站上。標題沒有、內文沒有、程式碼裡也沒有。
-
-沒有一項是罕見的。這正是重點——一個沒被審計過的網站，積累的就是這些。
-
-## 逐項修好
-
-### 同樣的網址，讓索引活下來
-
-重建的第一條規則：**每一條現有網址照常運作**。Google 對這個網站的索引原封不動地接了過來——沒有 404、沒有搬家式的排名輪盤。不該被索引的垃圾（`hello-world`、購物車、結帳）全部 **301** 到合理的目的地。
-
-### 一個不可能失敗的 Load More
-
-重建版的作品集把**全部 85 場活動預先渲染在 HTML 裡**。篩選是顯示和隱藏；按鈕只是多顯示九張。以下是實際上線的程式碼（稍作精簡）：
+重建版的作品集讓這種故障**結構上不可能發生**：全部 85 張卡預先渲染在 HTML 裡。篩選是顯示和隱藏；按鈕只是多顯示九張。以下是實際上線的程式碼（稍作精簡）：
 
 ```js
 // 作品集篩選 + load-more（所有卡片都在 DOM；零網絡請求）
@@ -78,68 +69,57 @@ function apply() {
 more.addEventListener('click', function () { shown += PAGE; apply(); });
 ```
 
-沒有 nonce、沒有快取、沒有端點——沒有東西可以 403。而且因為內容就在 HTML 裡，爬蟲不用點任何按鈕就能看到全部 85 場。
+沒有 nonce、沒有快取、沒有端點——沒有東西可以 403。
 
 ![重建後的作品集——85 場活動全部預先渲染，篩選和 load-more 純客戶端](../../../assets/images/krystle-06-after-portfolio.jpg)
 
-*85 場活動，終於全部到得了——人和爬蟲都是。*
+*85 場活動，終於全部到得了。篩選和 Load More 的手感跟原版一模一樣——只是它們真的能用。*
 
-### 每一頁都向 Google 自我介紹
+## 燈箱：外掛變成 `<dialog>`
 
-建置腳本為 102 頁中的每一頁蓋上獨一無二的標題、**雙語 meta description**、Open Graph + Twitter cards 和 canonical。結構化資料放在每個有意義的地方：
-
-- **`Person`**——帶 `alternateName: 張可澄`，把她的中英文身份連起來
-- **`LocalBusiness`**——她本來就是
-- **`BreadcrumbList`**——每個層級頁面
-- **`ImageGallery`**——每個活動頁一個，描述裡面的照片
+每個活動頁都有相冊和燈箱。舊的是 Magnific Popup（jQuery）。新的是平台本身：原生 `<dialog>` 元素，加約 40 行 JavaScript 處理鍵盤和滑動。焦點處理正確、Esc 能關、成本是零。
 
 ![85 個生成的活動頁之一，附燈箱相冊](../../../assets/images/krystle-07-after-event-page.jpg)
 
-*85 個活動頁，每一頁：獨立標題、描述、canonical，和自己的 ImageGallery 標記。*
+*85 個活動頁之一——原生 `<dialog>` 燈箱，鍵盤和滑動都有。*
 
-因為頁面是由一個腳本從資料蓋出來的，這些元資料**不可能走樣**：在 JSON 加一場新活動，以上全部自動生成。（這就是第一篇講的批量編輯優勢，換上了 SEO 的帽子。）
+## 手機版：一樣，但誠實
 
-### 名字
+這裡沒有花招——手機版的目標就是跟原版*無法分辨*，減去那十秒的等待。
 
-「張可澄」現在在標題裡、meta description 裡、關於頁、頁尾和 JSON-LD 裡。搜她中文名字的人，終於會落在她自己的網站上——而不是一無所獲。
+![手機版：左為原站，右為重建](../../../assets/images/krystle-09-mobile-before-after.jpg)
 
-![重建後的關於頁——簡介、資歷，以及終於出現在網站上的中文名字](../../../assets/images/krystle-08-after-about.jpg)
+*手機版，前後對比。同樣的排版；分別在載入，不在外觀。*
 
-*關於頁——「張可澄」終於在網站上。*
+順手也縫合了審計裡兩個小的介面傷口：舊首頁兩個「Read More」按鈕的 href 是**空的**（按了甚麼都不會發生），而頁尾 logo 連去的是主題廠商的示範網站，不是她自己的首頁。
 
-## 記分板
+## 戰爭故事：一個弄壞她名字的字體
 
-| | WordPress | 靜態重建 |
-| :--- | :--- | :--- |
-| Lighthouse SEO | 85 | **100**（每一個模板） |
-| 訪客——或爬蟲——看得到的活動 | 9 / 85 | **85 / 85** |
-| 有 meta description 的頁面 | 0 | **102** |
-| 有結構化資料的頁面 | 0 | **102** |
-| 社交分享卡 | 無 | **全部頁面** |
-| 「張可澄」在網站上找得到 | 否 | **是** |
-| 被索引的垃圾網址（購物車、hello-world） | 有 | **已 301** |
+最後審稿時，Krystle 的姓氏顯示成「CHŒUNG」——H 和 E 黏成一團。在大圖區。在她自己的網站上。
 
-上線後獨立驗證——切換前幾小時對舊站的最後一次 PSI，和重建版的：
+第一個猜想：Cinzel Decorative 的 OpenType 連字。關掉連字——照樣黏。在瀏覽器裡做了一個五行測試矩陣，真相水落石出：**字體檔本身有一對錯誤的負值 kerning**，把 E 拉進了 H 裡。而 letter-spacing 並不會中和 kerning——kerning 在它底下照常生效。
 
-![舊 WordPress 網站的 PageSpeed Insights：效能 57、無障礙 94、最佳實踐 100、SEO 85](../../../assets/images/krystle-11-psi-before.jpg)
+![Debug CHŒUNG：一個測試矩陣，鎖定字體本身一對錯誤的 kerning](../../../assets/images/krystle-10-cheung-kerning-debug.jpg)
 
-*舊站，DNS 切換前幾小時的實地測量：SEO 85。*
+*找到元兇的五行矩陣：預設 / 關連字 / 大寫 / 關全部特性 / 加字距。*
 
-![已上線重建版的 PageSpeed Insights（桌面）：全部類別 100](../../../assets/images/krystle-13-psi-after-desktop.png)
+修正，來自實際上線的 CSS：
 
-*重建版，上線後：SEO 100——其餘類別同樣全 100。*
+```css
+.hero-text h1 {
+  font-kerning: none;   /* 字體的 kern pair 有錯——H 和 E 相撞 */
+}
+```
 
-> [!note] 剩下的是耐性
-> 排名不會一夜改變。索引裡是同樣的網址、好得多的訊號；接下來是 Search Console，和等待——順便看著「張可澄 司儀」會不會開始浮出她。那會是本系列未來的一篇。
+> [!note] 字體也是資料，而資料會有 bug
+> Google 提供的這個字體檔，就是含著一對壞掉的 kerning。再多的「我們的程式碼是對的」都敵不過上游的資料 bug——唯一的防禦，是用自己的眼睛逐字看渲染出來的像素。
 
 ## 真正的重點
 
-這篇文章裡沒有任何高深的 SEO。沒有技巧、沒有「秘技」——只是一個終於*把內容展示出來*、並在每一頁*準確自我描述*的網站，而且是自動的。大部分小生意的網站沒有「SEO 策略」問題；它們有的是「Google 根本看不到好東西」的問題。
-
-先修可見性。策略可以慢慢來。
+重建後的介面，你可以親自到 **[krystle.hk](https://krystle.hk)** 評判——如果設計看起來沒變，那就是成功。「重建介面」不代表重新設計任何東西，而是讓同一個介面變*真*：按鈕真的載入、篩選真的篩選、燈箱真的打開、名字真的渲染正確。舊網站大部分 JavaScript 的工作，不是在成就體驗——是站在訪客和內容之間。
 
 ---
 
-**本系列：**[第一篇——WordPress → 靜態 HTML，以及誠實的利弊](/zh/posts/rebuilding-my-wifes-website-part-1/) · 第二篇——你在這裡 · 第三、四篇即將推出。
+**本系列：**[第一篇——WordPress → 靜態 HTML，以及誠實的利弊](/zh/posts/rebuilding-my-wifes-website-part-1/) · 第二篇——你在這裡 · [第三篇——SEO 的故事](/zh/posts/rebuilding-my-wifes-website-part-3/) · 第四篇即將推出。
 
-*懷疑你的網站也對 Google 藏著東西？歡迎找我看看——[電郵我](mailto:nam@wistkey.com)。*
+*你網站的介面，真的在做它看起來在做的事嗎？值得檢查——發現嚇人的東西的話，[電郵我](mailto:nam@wistkey.com)。*

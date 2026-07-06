@@ -11,7 +11,7 @@ tags:
 
 ![WordPress to static HTML, Part I — first paint 10.3s to 1.7s, JavaScript 700KB to 5KB, requests 122 to 44](../../../assets/images/krystle-banner.png)
 
-My wife **Krystle (張可澄)** is a professional bilingual MC in Hong Kong — five thousand-plus events, a Hong Kong MC Competition championship, the works. Her portfolio site is how new clients find her.
+My wife **Krystle (張可澄)** is a professional bilingual MC in Hong Kong — five thousand-plus events, a Hong Kong MC Competition championship, the works. Her portfolio site, **[krystle.hk](https://krystle.hk)**, is how new clients find her.
 
 Last weekend I finally looked under its hood. It ran WordPress + Elementor + a heavy theme, scored **56 on Lighthouse** with a **13.8-second** largest paint — and hid one genuinely painful bug that deserves its own post (that's [Part II](/posts/rebuilding-my-wifes-website-part-2/)).
 
@@ -38,7 +38,7 @@ The homepage alone shipped **20 CSS files, 70 JS files — 122 requests, 2.2 MB*
 Fonts were their own small disaster: **872 KB across 17 requests** — every weight of Noto Sans TC, Montserrat and Roboto, mostly unused.
 
 > [!note] The bug I'm saving for Part II
-> The audit also found that a broken "Load More" button had been silently hiding **76 of her 85 events** from every visitor. That story — and everything else the site was hiding from Google — is [Part II: the SEO story](/posts/rebuilding-my-wifes-website-part-2/).
+> The audit also found that a broken "Load More" button had been silently hiding **76 of her 85 events** from every visitor. That story — and how the interface was rebuilt so it can't happen again — is [Part II: the UI](/posts/rebuilding-my-wifes-website-part-2/).
 
 ## The plan: same site, a hundredth of the code
 
@@ -53,42 +53,22 @@ The brief was strict on purpose. Same look. Same pages. **Same URLs** — nothin
 | Google Fonts: 17 requests, 872 KB | self-hosted subsets: 5 files, 392 KB |
 | WooCommerce / CF7 / Instagram plugins | deleted; junk URLs 301'd |
 
-![Hero section: WordPress original on the left, static rebuild on the right](../../../assets/images/krystle-03-hero-before-after.jpg)
-
-*Fidelity check — original left, rebuild right.*
+(What each of those replacements looks and feels like — the hero, the filter, the lightbox, mobile — is [Part II](/posts/rebuilding-my-wifes-website-part-2/)'s territory.)
 
 ## The build
 
 The architecture is one idea: **hand-written templates + a small Node build script + JSON data files**. Python scripts parsed the downloaded WordPress HTML into clean JSON — nav, hero, testimonials, the 84-logo client wall, and per-event data. Then `build.mjs` (no framework, ~400 lines) stamps out all **102 pages**, and a [sharp](https://sharp.pixelplumbing.com/) pipeline generated **805 image derivatives** (WebP grids, two gallery sizes, og:images) from the 397 originals.
 
-![The rebuilt hero — one composed image and HTML text layers instead of a 700 KB slider plugin](../../../assets/images/krystle-04-after-hero.jpg)
-
-*The 700 KB slider plugin, replaced by an image and some absolutely-positioned text.*
-
 The whole site now ships **~19 KB of CSS and ~5 KB of JavaScript** — less interactive code than the old site's smallest single plugin file. The CJK trick mattered most: full Noto Sans TC is enormous, so the build subsets it to the **919 glyphs the site actually uses** (272 KB, variable weight axis intact).
 
-## Two debugging war stories
+## A debugging war story
 
 **The phantom 6.5-second LCP.** After the rebuild, Lighthouse's simulated-throttling mode insisted LCP was 6.5s with a five-second "render delay". Its **own filmstrip showed the hero fully painted at 1.9s**, and a real DevTools-throttled trace (4× CPU, Slow 4G) measured LCP at **207 ms**. Hours of variant-testing — killing animations, inlining CSS, swapping test servers (fun fact: Python's `http.server` speaks HTTP/1.0 with no keep-alive, which distorts the simulator further) — proved it was a measurement artifact.
 
 > [!tip] Don't optimize a number you haven't cross-examined
 > Simulator said 6.5s. Filmstrip said 1.9s. Real trace said 0.2s. When a metric contradicts the pixels, check the filmstrip and a real trace before "fixing" anything — the score was lying, the page wasn't.
 
-**The CHŒUNG bug.** In final review, Krystle's surname rendered as "CHŒUNG" — the H and E fused into one glyph. First guess: an OpenType ligature. Disabled ligatures — still fused. A five-row test matrix in the browser isolated the truth: **a faulty negative kerning pair in the font file itself**, yanking the E inside the H. And letter-spacing doesn't neutralize kerning — kerning applies underneath it.
-
-![Debugging CHŒUNG: a test matrix isolating a faulty kerning pair in the font itself](../../../assets/images/krystle-10-cheung-kerning-debug.jpg)
-
-*The five-row matrix that found it: default / ligatures off / uppercase / all features off / letter-spaced.*
-
-The fix, from the shipped CSS:
-
-```css
-.hero-text h1 {
-  font-kerning: none;   /* the font's kern pair is faulty — H+E collide */
-}
-```
-
-Fonts are data, and data has bugs.
+(There was a second war story — a font whose kerning data mangled Krystle's own surname. It's a UI bug, so it lives in [Part II](/posts/rebuilding-my-wifes-website-part-2/).)
 
 ## The results
 
@@ -103,15 +83,11 @@ Fonts are data, and data has bugs.
 | Lighthouse Accessibility | 94 | **100** |
 | Lighthouse Best Practices | 96 | **100** |
 
-(The SEO column — 85 → 100, plus the 76 resurrected events — gets its own scoreboard in [Part II](/posts/rebuilding-my-wifes-website-part-2/).)
+(The SEO column — 85 → 100 — gets its own scoreboard in [Part III](/posts/rebuilding-my-wifes-website-part-3/).)
 
 QA before calling it done: all **815 internal URLs** across the 102 pages checked — zero broken; filter, load-more and lightbox exercised in a real browser; desktop and mobile visually diffed against the original's screenshots.
 
-![Mobile: original on the left, rebuild on the right](../../../assets/images/krystle-09-mobile-before-after.jpg)
-
-*Mobile, before and after.*
-
-Then came the boring-but-scary step — full WordPress backup, then the DNS flip to Cloudflare. **The site is live**, so the referee I deferred to earlier got its say:
+Then came the boring-but-scary step — full WordPress backup, then the DNS flip to Cloudflare. **[krystle.hk](https://krystle.hk) is live on the rebuild**, so the referee I deferred to earlier got its say:
 
 ![PageSpeed Insights on the live rebuilt site, mobile: Performance 90, Accessibility 100, Best Practices 100, SEO 100](../../../assets/images/krystle-12-psi-after-mobile.png)
 
@@ -151,6 +127,6 @@ Neither of us could have shipped this in a weekend alone. That's the whole point
 
 ---
 
-**Next in this series:** [Part II — the SEO story](/posts/rebuilding-my-wifes-website-part-2/): how the site went from hiding 89% of her work to SEO 100 on every page, and why her own name couldn't find her. Parts III and IV are on the way.
+**This series:** Part I — you're here · [Part II — the UI: same design, an interface that works](/posts/rebuilding-my-wifes-website-part-2/) · [Part III — the SEO story](/posts/rebuilding-my-wifes-website-part-3/) · Part IV is on the way.
 
 *Got a site that's slower than it should be? I'm happy to take a look — [email me](mailto:nam@wistkey.com).*

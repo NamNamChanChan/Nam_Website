@@ -11,7 +11,7 @@ tags:
 
 ![WordPress 到靜態 HTML（一）——首次繪製 10.3 秒到 1.7 秒、JavaScript 700KB 到 5KB、請求 122 到 44](../../../assets/images/krystle-banner.png)
 
-我太太 **Krystle（張可澄）** 是香港的專業雙語司儀——主持過五千多場活動，拿過香港司儀大賽冠軍。她的作品集網站，就是新客戶找到她的地方。
+我太太 **Krystle（張可澄）** 是香港的專業雙語司儀——主持過五千多場活動，拿過香港司儀大賽冠軍。她的作品集網站 **[krystle.hk](https://krystle.hk)**，就是新客戶找到她的地方。
 
 上個週末我終於認真看了它的引擎蓋底下。網站跑 WordPress + Elementor + 一個重型主題，Lighthouse **56 分**、最大內容繪製要 **13.8 秒**——還藏著一個真正教人心痛的 bug，痛到值得專門寫一篇（那是[第二篇](/zh/posts/rebuilding-my-wifes-website-part-2/)的故事）。
 
@@ -38,7 +38,7 @@ tags:
 字體自成一場小災難：**17 個請求、872 KB**——Noto Sans TC、Montserrat、Roboto 的每一個字重，大部分根本沒用到。
 
 > [!note] 留給第二篇的 bug
-> 審計還發現：一個壞掉的「Load More」按鈕，一直把她 85 場活動中的 **76 場**靜靜地藏起來，對每一位訪客。那個故事——以及網站對 Google 隱瞞的其他一切——在[第二篇：SEO 的故事](/zh/posts/rebuilding-my-wifes-website-part-2/)。
+> 審計還發現：一個壞掉的「Load More」按鈕，一直把她 85 場活動中的 **76 場**靜靜地藏起來，對每一位訪客。那個故事——以及介面如何重建到不可能再壞——在[第二篇：介面](/zh/posts/rebuilding-my-wifes-website-part-2/)。
 
 ## 計劃：同一個網站，百分之一的程式碼
 
@@ -53,42 +53,22 @@ tags:
 | Google Fonts：17 個請求、872 KB | 自家托管子集：5 個檔、392 KB |
 | WooCommerce / CF7 / Instagram 外掛 | 刪除；垃圾網址 301 |
 
-![大圖區：左為 WordPress 原版，右為靜態重建](../../../assets/images/krystle-03-hero-before-after.jpg)
-
-*還原度檢查——左原版，右重建。*
+（這些替代品實際的樣子和手感——大圖、篩選、燈箱、手機版——是[第二篇](/zh/posts/rebuilding-my-wifes-website-part-2/)的地盤。）
 
 ## 建造
 
 架構就一個念頭：**手寫模板 + 一個小小的 Node 建置腳本 + JSON 資料檔**。Python 腳本把下載回來的 WordPress HTML 解析成乾淨的 JSON——導航、大圖、推薦語、84 個客戶 logo 牆、每場活動的資料。然後 `build.mjs`（無框架、約 400 行）蓋出全部 **102 頁**，[sharp](https://sharp.pixelplumbing.com/) 管線從 397 張原圖生成 **805 個影像衍生檔**（WebP 方格圖、兩個燈箱尺寸、og:image）。
 
-![重建後的大圖區——用一張合成圖加 HTML 文字層，取代 700 KB 的輪播外掛](../../../assets/images/krystle-04-after-hero.jpg)
-
-*700 KB 的輪播外掛，換成一張圖和幾行絕對定位的文字。*
-
 整個網站現在只載 **約 19 KB CSS 和約 5 KB JavaScript**——比舊網站*最小的一個外掛檔案*還要少。其中最關鍵的是中文字體：完整的 Noto Sans TC 極其龐大，所以建置時把它子集到網站**實際用到的 919 個字**（272 KB，可變字重軸保留）。
 
-## 兩個 debug 戰爭故事
+## 一個 debug 戰爭故事
 
 **幽靈般的 6.5 秒 LCP。** 重建之後，Lighthouse 的模擬節流模式堅稱 LCP 是 6.5 秒，有五秒的「render delay」。但它**自己的 filmstrip 顯示大圖在 1.9 秒已完整畫出**，而真實的 DevTools 節流 trace（4× CPU、Slow 4G）量到的 LCP 是 **207 毫秒**。幾小時的變因測試——關動畫、inline CSS、換測試伺服器（冷知識：Python 的 `http.server` 說的是 HTTP/1.0、沒有 keep-alive，會進一步扭曲模擬器）——證明那是量度的假象。
 
 > [!tip] 未經盤問的數字，不要急著優化
 > 模擬器說 6.5 秒。Filmstrip 說 1.9 秒。真實 trace 說 0.2 秒。當一個指標跟像素打架，先看 filmstrip 和真實 trace 再動手「修」——說謊的是分數，不是頁面。
 
-**CHŒUNG 事件。** 最後審稿時，Krystle 的姓氏顯示成「CHŒUNG」——H 和 E 黏成一團。第一個猜想：OpenType 連字。關掉連字——照樣黏。在瀏覽器裡做了一個五行測試矩陣，真相水落石出：**字體檔本身有一對錯誤的負值 kerning**，把 E 拉進了 H 裡。而 letter-spacing 並不會中和 kerning——kerning 在它底下照常生效。
-
-![Debug CHŒUNG：一個測試矩陣，鎖定字體本身一對錯誤的 kerning](../../../assets/images/krystle-10-cheung-kerning-debug.jpg)
-
-*找到元兇的五行矩陣：預設 / 關連字 / 大寫 / 關全部特性 / 加字距。*
-
-修正，來自實際上線的 CSS：
-
-```css
-.hero-text h1 {
-  font-kerning: none;   /* 字體的 kern pair 有錯——H 和 E 相撞 */
-}
-```
-
-字體也是資料，而資料會有 bug。
+（本來還有第二個戰爭故事——一個字體的 kerning 資料把 Krystle 自己的姓氏弄壞了。那是介面的 bug，所以它住在[第二篇](/zh/posts/rebuilding-my-wifes-website-part-2/)。）
 
 ## 結果
 
@@ -103,15 +83,11 @@ tags:
 | Lighthouse 無障礙 | 94 | **100** |
 | Lighthouse 最佳實踐 | 96 | **100** |
 
-（SEO 那一欄——85 → 100，加上 76 場重見天日的活動——在[第二篇](/zh/posts/rebuilding-my-wifes-website-part-2/)有它自己的記分板。）
+（SEO 那一欄——85 → 100——在[第三篇](/zh/posts/rebuilding-my-wifes-website-part-3/)有它自己的記分板。）
 
 收工前的 QA：102 頁裡全部 **815 條站內連結**逐一檢查——零死鏈；篩選、load-more、燈箱在真實瀏覽器裡逐一操作過；桌面和手機截圖跟原站逐頁比對。
 
-![手機版：左為原站，右為重建](../../../assets/images/krystle-09-mobile-before-after.jpg)
-
-*手機版，前後對比。*
-
-然後是無聊但緊張的那一步——完整備份 WordPress，把 DNS 切到 Cloudflare。**網站已經上線**，所以我一直保留裁決權的那位裁判終於開口了：
+然後是無聊但緊張的那一步——完整備份 WordPress，把 DNS 切到 Cloudflare。**[krystle.hk](https://krystle.hk) 已經以重建版上線**，所以我一直保留裁決權的那位裁判終於開口了：
 
 ![已上線重建版的 PageSpeed Insights（手機）：效能 90、無障礙 100、最佳實踐 100、SEO 100](../../../assets/images/krystle-12-psi-after-mobile.png)
 
@@ -151,6 +127,6 @@ tags:
 
 ---
 
-**本系列下一篇：**[第二篇——SEO 的故事](/zh/posts/rebuilding-my-wifes-website-part-2/)：網站如何從隱藏她九成的作品，變成每一頁 SEO 100——以及為甚麼連她自己的名字都找不到她。第三、四篇即將推出。
+**本系列：**第一篇——你在這裡 · [第二篇——介面：同樣的設計，一個真正運作的介面](/zh/posts/rebuilding-my-wifes-website-part-2/) · [第三篇——SEO 的故事](/zh/posts/rebuilding-my-wifes-website-part-3/) · 第四篇即將推出。
 
 *你的網站是不是也比應有的更慢？歡迎找我看看——[電郵我](mailto:nam@wistkey.com)。*
