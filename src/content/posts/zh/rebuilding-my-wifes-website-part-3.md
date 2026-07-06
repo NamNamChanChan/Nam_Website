@@ -97,6 +97,6 @@ tags:
 
 ---
 
-**本系列：**[第一篇——WordPress → 靜態 HTML，以及誠實的利弊](/zh/posts/rebuilding-my-wifes-website-part-1/) · [第二篇——介面](/zh/posts/rebuilding-my-wifes-website-part-2/) · 第三篇——你在這裡 · 第四篇即將推出。
+**本系列：**[第一篇——WordPress → 靜態 HTML，以及誠實的利弊](/zh/posts/rebuilding-my-wifes-website-part-1/) · [第二篇——介面](/zh/posts/rebuilding-my-wifes-website-part-2/) · 第三篇——你在這裡 · [第四篇——網站上線了，然後是教訓](/zh/posts/rebuilding-my-wifes-website-part-4/)。
 
 *懷疑你的網站也對 Google 藏著東西？歡迎找我看看——[電郵我](mailto:nam@wistkey.com)。*

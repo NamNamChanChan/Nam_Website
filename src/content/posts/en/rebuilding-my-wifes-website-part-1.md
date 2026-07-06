@@ -127,6 +127,6 @@ Neither of us could have shipped this in a weekend alone. That's the whole point
 
 ---
 
-**This series:** Part I — you're here · [Part II — the UI: same design, an interface that works](/posts/rebuilding-my-wifes-website-part-2/) · [Part III — the SEO story](/posts/rebuilding-my-wifes-website-part-3/) · Part IV is on the way.
+**This series:** Part I — you're here · [Part II — the UI: same design, an interface that works](/posts/rebuilding-my-wifes-website-part-2/) · [Part III — the SEO story](/posts/rebuilding-my-wifes-website-part-3/) · [Part IV — the site was live, then came the lessons](/posts/rebuilding-my-wifes-website-part-4/).
 
 *Got a site that's slower than it should be? I'm happy to take a look — [email me](mailto:nam@wistkey.com).*

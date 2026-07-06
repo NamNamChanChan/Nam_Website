@@ -97,6 +97,6 @@ Fix the visibility first. The strategy can come after.
 
 ---
 
-**This series:** [Part I — WordPress → static HTML, and the honest pros and cons](/posts/rebuilding-my-wifes-website-part-1/) · [Part II — the UI](/posts/rebuilding-my-wifes-website-part-2/) · Part III — you're here · Part IV is on the way.
+**This series:** [Part I — WordPress → static HTML, and the honest pros and cons](/posts/rebuilding-my-wifes-website-part-1/) · [Part II — the UI](/posts/rebuilding-my-wifes-website-part-2/) · Part III — you're here · [Part IV — the site was live, then came the lessons](/posts/rebuilding-my-wifes-website-part-4/).
 
 *Suspect your site is hiding things from Google? I'm happy to take a look — [email me](mailto:nam@wistkey.com).*

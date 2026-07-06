@@ -120,6 +120,6 @@ more.addEventListener('click', function () { shown += PAGE; apply(); });
 
 ---
 
-**本系列：**[第一篇——WordPress → 靜態 HTML，以及誠實的利弊](/zh/posts/rebuilding-my-wifes-website-part-1/) · 第二篇——你在這裡 · [第三篇——SEO 的故事](/zh/posts/rebuilding-my-wifes-website-part-3/) · 第四篇即將推出。
+**本系列：**[第一篇——WordPress → 靜態 HTML，以及誠實的利弊](/zh/posts/rebuilding-my-wifes-website-part-1/) · 第二篇——你在這裡 · [第三篇——SEO 的故事](/zh/posts/rebuilding-my-wifes-website-part-3/) · [第四篇——網站上線了，然後是教訓](/zh/posts/rebuilding-my-wifes-website-part-4/)。
 
 *你網站的介面，真的在做它看起來在做的事嗎？值得檢查——發現嚇人的東西的話，[電郵我](mailto:nam@wistkey.com)。*

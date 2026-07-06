@@ -127,6 +127,6 @@ tags:
 
 ---
 
-**本系列：**第一篇——你在這裡 · [第二篇——介面：同樣的設計，一個真正運作的介面](/zh/posts/rebuilding-my-wifes-website-part-2/) · [第三篇——SEO 的故事](/zh/posts/rebuilding-my-wifes-website-part-3/) · 第四篇即將推出。
+**本系列：**第一篇——你在這裡 · [第二篇——介面：同樣的設計，一個真正運作的介面](/zh/posts/rebuilding-my-wifes-website-part-2/) · [第三篇——SEO 的故事](/zh/posts/rebuilding-my-wifes-website-part-3/) · [第四篇——網站上線了，然後是教訓](/zh/posts/rebuilding-my-wifes-website-part-4/)。
 
 *你的網站是不是也比應有的更慢？歡迎找我看看——[電郵我](mailto:nam@wistkey.com)。*

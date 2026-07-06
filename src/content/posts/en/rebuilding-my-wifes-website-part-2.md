@@ -120,6 +120,6 @@ Judge the rebuilt UI yourself at **[krystle.hk](https://krystle.hk)** — if the
 
 ---
 
-**This series:** [Part I — WordPress → static HTML, and the honest pros and cons](/posts/rebuilding-my-wifes-website-part-1/) · Part II — you're here · [Part III — the SEO story](/posts/rebuilding-my-wifes-website-part-3/) · Part IV is on the way.
+**This series:** [Part I — WordPress → static HTML, and the honest pros and cons](/posts/rebuilding-my-wifes-website-part-1/) · Part II — you're here · [Part III — the SEO story](/posts/rebuilding-my-wifes-website-part-3/) · [Part IV — the site was live, then came the lessons](/posts/rebuilding-my-wifes-website-part-4/).
 
 *Does your site's UI actually do what it looks like it does? Worth checking — [email me](mailto:nam@wistkey.com) if you find something scary.*
