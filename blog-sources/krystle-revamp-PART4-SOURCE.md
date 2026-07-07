@@ -9,6 +9,8 @@ Parts 1–3 ended with the rebuild deployed. Part 4 is the reality-check chapter
 2. A layout bug QA never caught because nobody tested 768px (→ art direction ≠ responsive resizing)
 3. Finally cornering the phantom Lighthouse LCP from Part 1's caveat (→ how lab simulation actually works, and when to stop trusting it)
 
+**STATUS: Part 4 was written and published 2026-07-06 from these notes.** The bilingual-mirror story that briefly lived here as "Story 4" has its own source file now → `krystle-revamp-PART5-SOURCE.md`.
+
 Callback hooks to earlier parts: Part 2 fixed what visitors saw; Part 3 fixed what Google saw; **Part 4 fixes what friends see when Krystle shares her own site in a chat.**
 
 Note: Part 3's teaser promised a 「張可澄 司儀」 *ranking* follow-up — indexing/ranking data needs weeks in Search Console to be worth writing about. Either open Part 4 by saying the ranking check is coming later (keeps the promise honest), or fold in whatever GSC shows at writing time if it's already interesting.
