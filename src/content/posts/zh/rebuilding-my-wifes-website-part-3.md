@@ -1,7 +1,7 @@
 ---
 title: "重建太太的網站（三）：SEO 的故事——和一個 Google 找不到的名字"
 description: "沒有 meta description、沒有結構化資料、垃圾頁面被索引——連她自己的中文名字都不在網站上。krystle.hk 的重建如何把每一頁的 Lighthouse SEO 從 85 帶到 100。"
-pubDatetime: 2026-06-08T00:25:00+08:00
+pubDatetime: 2026-06-21T00:25:00+08:00
 ogImage: ../../../assets/images/krystle-seo-banner.png
 draft: false
 tags:

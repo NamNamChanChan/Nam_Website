@@ -1,7 +1,7 @@
 ---
 title: "Rebuilding my wife's website, Part IV: the site was live — then she sent me a WhatsApp message"
 description: "Three things shipping taught us that QA couldn't: a link preview that undersold her in every group chat, a layout bug at the viewport nobody tests, and finally cornering the phantom Lighthouse LCP. All fixed on the live krystle.hk."
-pubDatetime: 2026-06-08T15:00:00+08:00
+pubDatetime: 2026-06-24T15:00:00+08:00
 ogImage: ../../../assets/images/krystle-part4-banner.png
 draft: false
 tags:

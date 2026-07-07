@@ -1,7 +1,7 @@
 ---
 title: "Why we deploy LLMs on-premises"
 description: "Privacy, cost control and predictability: when running AI on your own servers beats calling an API — and when it doesn't."
-pubDatetime: 2026-06-05T14:00:00+08:00
+pubDatetime: 2026-06-06T14:00:00+08:00
 tags:
   - ai
   - tech

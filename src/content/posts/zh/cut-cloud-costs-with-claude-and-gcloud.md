@@ -1,7 +1,7 @@
 ---
 title: "用 Claude 和 gcloud 安全地把雲端帳單砍掉九成"
 description: "用 Claude 加 gcloud CLI 的 agentic 工作流程，把每月雲端開支從 $2,800 降到 $300——不改一行 code、零停機。方法，以及真正重要的安全防線。"
-pubDatetime: 2026-06-07T09:00:00+08:00
+pubDatetime: 2026-06-09T09:00:00+08:00
 ogImage: ../../../assets/images/cut-cloud-costs-banner.png
 draft: false
 tags:

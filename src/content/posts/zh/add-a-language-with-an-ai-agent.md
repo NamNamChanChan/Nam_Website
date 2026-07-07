@@ -1,7 +1,7 @@
 ---
 title: "我如何用一個 AI agent,替一個 200 頁的網站加上一整種語言——附上 prompt 同程式碼"
 description: "以前替網站加英文,是一個五種角色、幾個月的項目。我用一個 AI agent,一個下午就替一個 200 頁的網站做完。以下是實際用過的 prompt、程式碼模式,以及那件機器仍然做不到的事。"
-pubDatetime: 2026-06-09T11:00:00+08:00
+pubDatetime: 2026-07-06T11:00:00+08:00
 ogImage: ../../../assets/images/add-a-language-with-an-ai-agent-cover.png
 draft: false
 tags:

@@ -1,7 +1,7 @@
 ---
 title: "Rebuilding my wife's website, Part III: the SEO story — and a name Google couldn't find"
 description: "No meta descriptions, no structured data, junk pages indexed — and her own Chinese name appearing nowhere on the site. How the rebuild of krystle.hk took Lighthouse SEO from 85 to 100 on every page."
-pubDatetime: 2026-06-08T00:25:00+08:00
+pubDatetime: 2026-06-21T00:25:00+08:00
 ogImage: ../../../assets/images/krystle-seo-banner.png
 draft: false
 tags:

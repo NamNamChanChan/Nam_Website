@@ -1,7 +1,7 @@
 ---
 title: "NamLoop（二）：git push，就上線了——部署變得有多不可思議地容易"
 description: "那個週末做的 YouTube 循環播放器需要一個網上的家。它得到了——全球 CDN、HTTPS、自訂域名、每次 push 自動部署——費用 $0，用的時間比改名還少。2026 年部署一個無後端的 web 項目，就是這個樣子。"
-pubDatetime: 2026-06-09T01:30:00+08:00
+pubDatetime: 2026-06-27T01:30:00+08:00
 ogImage: ../../../assets/images/namloop-p2-banner.png
 draft: false
 tags:

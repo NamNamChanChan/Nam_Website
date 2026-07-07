@@ -1,7 +1,7 @@
 ---
 title: "NamLoop, Part II: git push, and it's live — how embarrassingly easy deploying became"
 description: "The weekend YouTube looper needed a home on the internet. It got one — global CDN, HTTPS, custom domain, CI/CD on every push — for $0, in less time than choosing its name. What deploying a backend-less web project looks like in 2026."
-pubDatetime: 2026-06-09T01:30:00+08:00
+pubDatetime: 2026-06-27T01:30:00+08:00
 ogImage: ../../../assets/images/namloop-p2-banner.png
 draft: false
 tags:

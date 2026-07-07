@@ -1,7 +1,7 @@
 ---
 title: "Vibe coding NamLoop：一個週末，做出一個無廣告的 YouTube 循環播放器"
 description: "一個週末、剩低啲 token，加一個想咗好耐嘅念頭——我 vibe code 咗 NamLoop：把任何 YouTube 影片循環播放，整段或精準的 A–B 片段，無廣告。它做甚麼、循環是怎樣運作的，以及「vibe coding」真正改變了甚麼。"
-pubDatetime: 2026-06-07T12:00:00+08:00
+pubDatetime: 2026-06-12T12:00:00+08:00
 ogImage: ../../../assets/images/namloop-banner.png
 draft: false
 tags:

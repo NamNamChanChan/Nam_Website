@@ -1,7 +1,7 @@
 ---
 title: "幾分鐘部署一個網站,$0 免費——GitHub + Cloudflare 食譜"
 description: "Star 一個 repo、連上免費的 Cloudflare 帳戶、設定一條 build 指令,之後每次 git push 都會把你的網站送上全球 CDN——連 HTTPS 都包——費用是零。完整五步食譜,用我的 side project NamLoop 做白老鼠(任何網站都適用)。"
-pubDatetime: 2026-06-09T10:00:00+08:00
+pubDatetime: 2026-07-03T10:00:00+08:00
 ogImage: ../../../assets/images/deploy-free-with-github-and-cloudflare-cover.png
 draft: false
 tags:

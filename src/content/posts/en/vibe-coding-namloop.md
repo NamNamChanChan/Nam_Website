@@ -1,7 +1,7 @@
 ---
 title: "Vibe-coding NamLoop: an ad-free YouTube looper, shipped in a weekend"
 description: "A weekend, some spare tokens, and an itch — I vibe-coded NamLoop: loop any YouTube video, the whole thing or a precise A–B segment, ad-free. What it does, how the looping actually works, and what 'vibe coding' really changes."
-pubDatetime: 2026-06-07T12:00:00+08:00
+pubDatetime: 2026-06-12T12:00:00+08:00
 ogImage: ../../../assets/images/namloop-banner.png
 draft: false
 tags:

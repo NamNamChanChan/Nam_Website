@@ -1,7 +1,7 @@
 ---
 title: "重建太太的網站（四）：網站上線了——然後她傳來一個 WhatsApp 訊息"
 description: "三件 QA 教不會、只有上線才學到的事：一個在每個群組裡都拖她後腿的連結預覽、一個沒人測試的視窗尺寸的排版 bug，以及終於逮住 Lighthouse 那個幽靈 LCP。全部在已上線的 krystle.hk 修好。"
-pubDatetime: 2026-06-08T15:00:00+08:00
+pubDatetime: 2026-06-24T15:00:00+08:00
 ogImage: ../../../assets/images/krystle-part4-banner.png
 draft: false
 tags:

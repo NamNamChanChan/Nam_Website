@@ -1,7 +1,7 @@
 ---
 title: "WordPress isn't dying — it's decaying. And developers and small businesses feel it first."
 description: "It still runs ~42% of the web, so 'dying' is clickbait. But its share is falling faster every month, 96% of its security holes live in its plugins, and its own governance is in court. The honest state of WordPress in 2026 — through the site I just tore out and rebuilt: my wife's."
-pubDatetime: 2026-06-09T09:00:00+08:00
+pubDatetime: 2026-06-30T09:00:00+08:00
 ogImage: ../../../assets/images/wordpress-is-decaying-cover.png
 draft: false
 tags:

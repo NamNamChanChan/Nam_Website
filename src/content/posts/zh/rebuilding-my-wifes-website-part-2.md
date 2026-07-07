@@ -1,7 +1,7 @@
 ---
 title: "重建太太的網站（二）：介面——同樣的設計，一個終於運作的介面"
 description: "krystle.hk 的重建把設計保持到像素級接近，卻換掉了每一個由外掛驅動的互動：沒有 700 KB 輪播的大圖區、一個不可能再藏起活動的作品集、原生 <dialog> 燈箱——還有一個把她名字弄壞的字體 bug。"
-pubDatetime: 2026-06-08T00:20:00+08:00
+pubDatetime: 2026-06-18T00:20:00+08:00
 ogImage: ../../../assets/images/krystle-ui-banner.png
 draft: false
 tags:

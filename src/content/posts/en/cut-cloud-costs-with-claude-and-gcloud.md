@@ -1,7 +1,7 @@
 ---
 title: "Cutting our cloud bill 90% with Claude and gcloud — safely"
 description: "An agentic workflow with Claude and the gcloud CLI took our monthly cloud spend from $2,800 to $300 — no code changes, no downtime. The method, and the safety rails that actually matter."
-pubDatetime: 2026-06-07T09:00:00+08:00
+pubDatetime: 2026-06-09T09:00:00+08:00
 ogImage: ../../../assets/images/cut-cloud-costs-banner.png
 draft: false
 tags:
