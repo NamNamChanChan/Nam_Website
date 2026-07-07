@@ -1,7 +1,7 @@
 ---
 title: "你好，世界——為甚麼要有這個網站"
 description: "我在網上的個人基地：會寫甚麼，以及雙語網誌的運作方式。"
-pubDatetime: 2026-07-01T09:00:00+08:00
+pubDatetime: 2026-06-03T09:00:00+08:00
 featured: true
 tags:
   - tech

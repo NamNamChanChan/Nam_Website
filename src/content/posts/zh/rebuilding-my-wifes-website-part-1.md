@@ -1,7 +1,7 @@
 ---
 title: "重建太太的網站（一）：WordPress → 靜態 HTML——以及誠實的利弊"
 description: "太太的 WordPress 作品集網站 Lighthouse 只有 56 分、13.8 秒才畫出畫面。與 AI agent 合作一個週末之後：102 頁手寫靜態 HTML、首次繪製 1.7 秒、只載 5 KB JavaScript。我們怎樣做——以及甚麼時候你不該這樣做。"
-pubDatetime: 2026-07-06T00:15:00+08:00
+pubDatetime: 2026-06-08T00:15:00+08:00
 ogImage: ../../../assets/images/krystle-banner.png
 draft: false
 tags:

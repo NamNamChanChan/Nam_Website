@@ -1,7 +1,7 @@
 ---
 title: "Deploy a website in minutes, for £0 — the GitHub + Cloudflare recipe"
 description: "Star a repo, connect it to a free Cloudflare account, set one build command, and every git push ships your site to a global CDN — HTTPS and all — for nothing. The exact 5-step recipe, with my side project NamLoop as the guinea pig (works for any site)."
-pubDatetime: 2026-07-07T10:00:00+08:00
+pubDatetime: 2026-06-09T10:00:00+08:00
 ogImage: ../../../assets/images/deploy-free-with-github-and-cloudflare-cover.png
 draft: false
 tags:

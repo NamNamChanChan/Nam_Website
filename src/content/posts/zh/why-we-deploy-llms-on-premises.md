@@ -1,7 +1,7 @@
 ---
 title: "為甚麼我們把 LLM 私有化部署"
 description: "私隱、成本控制與可預測性：甚麼時候在自己的伺服器上跑 AI 比呼叫 API 更划算——以及甚麼時候不是。"
-pubDatetime: 2026-07-03T14:00:00+08:00
+pubDatetime: 2026-06-05T14:00:00+08:00
 tags:
   - ai
   - tech

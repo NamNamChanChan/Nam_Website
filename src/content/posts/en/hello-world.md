@@ -1,7 +1,7 @@
 ---
 title: "Hello, world — why this site exists"
 description: "A personal home on the web: what I'll write about, and how the bilingual blog works."
-pubDatetime: 2026-07-01T09:00:00+08:00
+pubDatetime: 2026-06-03T09:00:00+08:00
 featured: true
 tags:
   - tech

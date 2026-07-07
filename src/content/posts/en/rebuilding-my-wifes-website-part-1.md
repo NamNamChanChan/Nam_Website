@@ -1,7 +1,7 @@
 ---
 title: "Rebuilding my wife's website, Part I: WordPress → static HTML — and the honest pros and cons"
 description: "Her WordPress portfolio scored 56 on Lighthouse and took 13.8 seconds to paint. One weekend with an AI agent later: 102 pages of hand-rolled static HTML, first paint 1.7s, 5 KB of JavaScript. How we did it — and when you shouldn't."
-pubDatetime: 2026-07-06T00:15:00+08:00
+pubDatetime: 2026-06-08T00:15:00+08:00
 ogImage: ../../../assets/images/krystle-banner.png
 draft: false
 tags:

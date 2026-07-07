@@ -1,7 +1,7 @@
 ---
 title: "How I added a whole language to a 200-page site with an AI agent — the prompts and the code"
 description: "Adding English to a website used to be a five-role, multi-month project. I did it to a 200-page site in one afternoon with an AI agent. Here are the actual prompts, the code patterns, and the one thing the machine still can't do."
-pubDatetime: 2026-07-07T11:00:00+08:00
+pubDatetime: 2026-06-09T11:00:00+08:00
 ogImage: ../../../assets/images/add-a-language-with-an-ai-agent-cover.png
 draft: false
 tags:

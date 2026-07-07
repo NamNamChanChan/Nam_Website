@@ -1,7 +1,7 @@
 ---
 title: "Rebuilding my wife's website, Part II: the UI — same design, an interface that finally works"
 description: "The rebuild of krystle.hk kept the design pixel-close and replaced every plugin-powered interaction: a hero without a 700 KB slider, a portfolio that can't hide her events, a native-dialog lightbox — and a font bug that mangled her own name."
-pubDatetime: 2026-07-06T00:20:00+08:00
+pubDatetime: 2026-06-08T00:20:00+08:00
 ogImage: ../../../assets/images/krystle-ui-banner.png
 draft: false
 tags:

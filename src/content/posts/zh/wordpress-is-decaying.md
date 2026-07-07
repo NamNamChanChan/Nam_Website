@@ -1,7 +1,7 @@
 ---
 title: "WordPress 不是在死，是在衰敗——而開發者和中小企最先聞到"
 description: "它仍然撐起全球約 42% 的網站，所以「死亡」是標題黨。但它的佔有率跌得一個月比一個月快，96% 的保安漏洞出在外掛，連它自己的管治都鬧上法庭。這是 2026 年 WordPress 的誠實近況——透過我上週親手拆掉、重建的那個網站來看：我太太的。"
-pubDatetime: 2026-07-07T09:00:00+08:00
+pubDatetime: 2026-06-09T09:00:00+08:00
 ogImage: ../../../assets/images/wordpress-is-decaying-cover.png
 draft: false
 tags:
