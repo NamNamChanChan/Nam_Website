@@ -96,3 +96,7 @@ The most interesting part is what's replacing it — because it isn't a rival CM
 The gravestone in that thumbnail is theatre. But the rocket has a point: for a growing number of sites, the right answer really is *less* — and the tools to reach it are, for the first time, within reach of the people who need it most.
 
 *Sitting on a WordPress site that's slower or more fragile than it should be, and not sure whether it's worth rebuilding? That's exactly the question I like — [email me](mailto:nam@wistkey.com) and I'll give you an honest read.*
+
+---
+
+*If this was useful, there's more where it came from: [follow me on Medium](https://nam0403.medium.com/), [subscribe or bookmark nam-ai.uk](https://nam-ai.uk) for new posts on building and shipping with AI, and feel free to [connect on LinkedIn](https://www.linkedin.com/in/nam-chan/) — I'm always happy to talk shop.*
