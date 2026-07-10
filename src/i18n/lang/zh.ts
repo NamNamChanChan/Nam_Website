@@ -37,13 +37,13 @@ export default {
   },
   hero: {
     title: "你好，我是 Nam 👋",
-    tagline: "Nam Chan · 又名 Alfred Nam · 香港 ⇄ 倫敦",
+    tagline: "Nam Chan · 又名 Alfred Nam · Wistkey CTO · 倫敦 ⇄ 香港",
     rolePre: "我是 ",
     roleLink: "Wistkey",
     rolePost:
-      " 的 CTO，我們協助企業真正用上 AI——私有化部署的 LLM、Agentic 工作流程自動化，以及能落地交付的工程團隊。",
+      " 的 CTO——我們為企業與政府打造真正上線的 AI 系統：私有化部署的 LLM、多 Agent 系統，以及能把它們交付出去的工程團隊。十年交付經驗，橫跨英國與香港，做過的平台如今服務數以百萬計的使用者。",
     writing:
-      "這裡是我在網上的個人角落——寫科技、IT、AI、商業、理財與瑜伽，也把我的個人項目和所有連結集中在這裡。",
+      "我現在大部分的工作，是協助企業在整個組織導入 AI——不只是技術部門。我在這裡寫真正行得通的東西：AI、科技、IT、商業、理財，以及那個讓一切得以持續的清晨四點 Ashtanga 練習。",
     ctaProjects: "看看我的項目",
     ctaAbout: "更多關於我",
   },

@@ -37,13 +37,13 @@ export default {
   },
   hero: {
     title: "Hi, I'm Nam 👋",
-    tagline: "Nam Chan · aka Alfred Nam · Hong Kong ⇄ London",
+    tagline: "Nam Chan · aka Alfred Nam · CTO at Wistkey · London ⇄ Hong Kong",
     rolePre: "I'm the CTO of ",
     roleLink: "Wistkey",
     rolePost:
-      ", where we help businesses put AI to work — private on-prem LLMs, agentic workflow automation, and the engineering teams to ship them.",
+      " — we engineer production AI for enterprise and government: private on-premises LLMs, multi-agent systems, and the engineering teams that ship them. Ten years of delivery across the UK and Hong Kong, on platforms now used by millions.",
     writing:
-      "This site is my personal corner of the web — I write about tech, IT, AI, business, finance and yoga, and gather my side projects and links in one place.",
+      "Most of my work now is helping companies adopt AI across the whole organisation — not just the tech department. I write here about what actually works: AI, tech, IT, business, finance, and the 4am Ashtanga practice that keeps it all sustainable.",
     ctaProjects: "See my projects",
     ctaAbout: "More about me",
   },

@@ -1,27 +1,43 @@
 ---
 title: "About"
-description: "Nam Chan, aka Alfred Nam — CTO at Wistkey. AI-adoption partner, programmer, Ashtanga yogi, based between Hong Kong and London."
+description: "Nam Chan, aka Alfred Nam — CTO at Wistkey. I build production AI for enterprise and government: on-prem LLMs, multi-agent systems, and the teams that ship them. London ⇄ Hong Kong."
 ---
 
 <!-- Personal bio — based on Nam's own notes. Edit freely. -->
 
-Hi — I'm **Nam Chan**. Depending on where we met, you might also know me as **Alfred Nam**. I live between **Hong Kong and London**.
+Hi — I'm **Nam Chan** (陳冠南). Depending on where we met, you might also know me as **Alfred Nam**. I read Computer Science at **The Chinese University of Hong Kong**, and I've spent the decade since building software — first with my hands, then with teams, and now, increasingly, with agents. I live between **London and Hong Kong**.
 
 ## What I do
 
-I'm the **CTO of [Wistkey](https://wistkey.com)**, where we help businesses actually put AI to work:
+I'm the **CTO of [Wistkey](https://wistkey.com)** — a London-headquartered engineering firm that builds and runs software for enterprise and government across the **UK and Hong Kong**. We're a partner, not a placement agency: we embed with our clients' teams and own the outcome alongside them.
 
-- **Private, on-premises AI** — deploying LLMs on a company's own servers, so sensitive data never leaves the building
-- **Agentic workflow automation** — AI agents that take repetitive operations off people's plates, end to end
-- **Engineering delivery** — on-demand software engineers and dedicated teams that ship real products, across the UK and Hong Kong
+Three things sit on my desk:
 
-More and more of my time goes into **helping companies adopt AI across the whole organisation — not just the tech department**. Finance, HR, admin, accounting, operations: every one of these teams has repetitive, rules-based work that AI can take on, and that's often where the fastest wins are. I'm currently deep in **AI applications and agentic workflows**, and when people ask, I **teach on AI topics** too — I genuinely enjoy it.
+- **Production AI** — large language models, autonomous agents and intelligent workflows that run *in production*, not in a demo. RAG architectures grounded in a client's own data, fine-tuned models, multi-agent orchestration with tool use, guardrails and human-in-the-loop checkpoints.
+- **Private, on-premises deployment** — LLMs on a company's own servers, so sensitive data never leaves the building. This is what makes AI possible for the government agencies, banks and healthcare bodies we work with, where data sovereignty isn't optional.
+- **Engineering delivery** — on-demand engineers and dedicated teams, coordinated from London across delivery hubs in **Hong Kong, Shenzhen and South-East Asia**.
+
+Some numbers from the work, because they're the honest measure of it: **ten years** of enterprise delivery, **120+ clients**, **50+ projects** shipped, **15+ government and public-sector platforms**, and systems now carrying **over two million active users**.
+
+## The work I'm proudest of
+
+Much of it is public infrastructure you'd never think about until it breaks. Our teams have built a **laboratory-results platform** for public health, a **building-safety diagnostics system** for the housing authority, **real-time public-transport monitoring**, a **smart traffic and IoT platform** fusing CCTV with AI safety detection, a **3D/AR weather-visualisation platform** with live rainfall overlays, and a system that **coordinates service robots inside hospitals**.
+
+Unglamorous, heavily regulated, and it has to work at 3am. That's the kind of engineering I like.
+
+## AI adoption is a leadership problem, not a software rollout
+
+More and more of my time goes into **helping companies adopt AI across the whole organisation — not just the tech department**. Finance, HR, admin, accounting, operations: every one of these teams has repetitive, rules-based work that AI can take on, and that's usually where the fastest wins hide.
+
+The hard part is rarely the model. It's deciding how work changes, what responsible practice looks like, how managers coach it, and where stronger capability takes someone's career. Companies that only update the technology stack — and not the management and career design around it — tend to lose their most AI-fluent people.
+
+I **teach and speak on AI** when people ask — most recently on **agentic AI for finance professionals** — and I genuinely enjoy it.
 
 ## Back to code
 
 After some years away from hands-on programming, I'm **hooked on it again**. AI has re-empowered the skills I built long ago and, honestly, made coding *physically* more affordable — the long, unbroken hours that get harder to sustain past thirty are no longer the price of shipping something good. That's changed everything about how much I can build.
 
-You'll find what I'm building on the [projects page](/projects) — from [VitaBaby](https://vitababy.ai) to little tools like [NamLoop](https://loop.nam-ai.uk/).
+So I build in public. I rebuilt [my wife's WordPress site](/posts/rebuilding-my-wifes-website-part-1/) as 102 pages of static HTML in a weekend, took a Google Cloud bill from $2,800 to $300 in an afternoon, and ship small tools like [NamLoop](https://loop.nam-ai.uk/) between bedtime and sleep. It's all on the [projects page](/projects), and I write up how it was done — including the parts that went wrong.
 
 ## Yoga
 
@@ -29,10 +45,10 @@ I practise **Ashtanga yoga**, five to six mornings a week, at **4am London time 
 
 ## What I write about
 
-This blog is where I think out loud about **tech, IT, AI, business, finance and yoga** — practical AI adoption and on-prem LLMs, the craft of shipping software, building companies and making sense of money, and the practice that keeps me grounded.
+This blog is where I think out loud about **tech, IT, AI, business, finance and yoga** — practical AI adoption and on-prem LLMs, the craft of shipping software, building companies and making sense of money, and the practice that keeps me grounded. No hype, and I show the working.
 
-I write in **English and Traditional Chinese** — most posts in one language, some in both. The 中 / EN toggle in the header switches between them.
+I write in **English and Traditional Chinese** — the 中 / EN toggle in the header switches between them.
 
 ## Say hi
 
-The fastest way to reach me is email: [nam@wistkey.com](mailto:nam@wistkey.com). Everywhere else I exist on the internet is on the [links page](/links).
+If you're wondering what AI could actually do inside your organisation — or what it shouldn't — that's my favourite conversation. The fastest way to reach me is email: [nam@wistkey.com](mailto:nam@wistkey.com). Everywhere else I exist on the internet is on the [links page](/links).

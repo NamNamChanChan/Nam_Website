@@ -17,8 +17,17 @@ export const projects: Project[] = [
     url: "https://wistkey.com",
     role: { en: "CTO · day job", zh: "CTO · 正職" },
     description: {
-      en: "Helping businesses put AI to work: private on-prem LLM deployments, agentic workflow automation, and on-demand engineering teams that ship. Delivery across the UK and Hong Kong.",
-      zh: "協助企業把 AI 真正用起來：私有化部署 LLM、Agentic 工作流程自動化，以及能落地交付的工程團隊。服務覆蓋英國與香港。",
+      en: "Production AI and engineering delivery for enterprise and government. Private on-premises LLMs, multi-agent systems and workflow automation — plus the on-demand engineering teams that ship them. London HQ, delivering across the UK and Hong Kong: ten years, 120+ clients, 15+ government platforms, systems used by over 2M people.",
+      zh: "為企業與政府打造真正上線的 AI 與工程交付。私有化部署 LLM、多 Agent 系統與工作流程自動化——以及能把它們交付出去的工程團隊。倫敦總部，服務覆蓋英國與香港：十年、120+ 客戶、15+ 個政府平台，系統服務超過 200 萬名使用者。",
+    },
+  },
+  {
+    name: "krystle.hk",
+    url: "https://krystle.hk",
+    role: { en: "Rebuilt it, in a weekend", zh: "一個週末重建" },
+    description: {
+      en: "My wife's professional MC portfolio, rebuilt from a heavy WordPress stack into 102 pages of dependency-free static HTML. Lighthouse SEO 85 → 100, first paint 13.8s → 1.7s, ~5 KB of JavaScript. Written up as a five-part series on this blog.",
+      zh: "太太的專業司儀作品集，由臃腫的 WordPress 技術棧重建成 102 頁零相依的靜態 HTML。Lighthouse SEO 由 85 → 100、首次繪製由 13.8 秒 → 1.7 秒、僅約 5 KB JavaScript。過程寫成本站的五篇系列文章。",
     },
   },
   {

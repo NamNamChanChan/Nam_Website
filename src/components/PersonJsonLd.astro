@@ -9,14 +9,30 @@ const personLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Nam Chan",
-  alternateName: ["Alfred Nam", "Kwun Nam Chan"],
+  alternateName: ["Alfred Nam", "Kwun Nam Chan", "陳冠南"],
   url: config.site.url,
   jobTitle: "Chief Technology Officer",
+  description:
+    "CTO at Wistkey, building production AI for enterprise and government — private on-premises LLMs, multi-agent systems, and the engineering teams that ship them. Based between London and Hong Kong.",
   worksFor: {
     "@type": "Organization",
     name: "Wistkey",
     url: "https://wistkey.com",
   },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "The Chinese University of Hong Kong",
+    url: "https://www.cuhk.edu.hk/",
+  },
+  knowsAbout: [
+    "Artificial Intelligence",
+    "Large Language Models",
+    "Agentic AI",
+    "On-premises AI deployment",
+    "Retrieval-Augmented Generation",
+    "Enterprise AI adoption",
+    "Software engineering delivery",
+  ],
   knowsLanguage: ["en", "zh-Hant"],
   ...(sameAs.length > 0 && { sameAs }),
 };
