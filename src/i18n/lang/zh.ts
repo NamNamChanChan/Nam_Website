@@ -81,6 +81,8 @@ export default {
 
     projectsTitle: "項目",
     projectsDesc: "我做過的產品與個人項目。",
+    projectsMore:
+      "還有很多——客戶項目、以前的作品、以及做到一半的實驗。等我週末有空，會陸續放上來。",
 
     linksTitle: "連結",
     linksDesc: "我的所有帳號與網站，集中在這裡。",

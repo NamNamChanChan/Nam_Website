@@ -77,6 +77,7 @@ export interface UIStrings {
 
     projectsTitle: string;
     projectsDesc: string;
+    projectsMore: string;
 
     linksTitle: string;
     linksDesc: string;

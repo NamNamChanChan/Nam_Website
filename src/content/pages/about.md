@@ -21,9 +21,9 @@ Some numbers from the work, because they're the honest measure of it: **ten year
 
 ## The work I'm proudest of
 
-Much of it is public infrastructure you'd never think about until it breaks. Our teams have built a **laboratory-results platform** for public health, a **building-safety diagnostics system** for the housing authority, **real-time public-transport monitoring**, a **smart traffic and IoT platform** fusing CCTV with AI safety detection, a **3D/AR weather-visualisation platform** with live rainfall overlays, and a system that **coordinates service robots inside hospitals**.
+Much of it is the kind of public infrastructure you'd never think about until it breaks. Most of it sits under client confidentiality, so I won't name names — but the shape of the work is consistent: systems in **regulated environments**, where the data is sensitive, uptime isn't negotiable, and the security review takes longer than the build.
 
-Unglamorous, heavily regulated, and it has to work at 3am. That's the kind of engineering I like.
+Unglamorous, heavily governed, and it has to work at 3am. That's the kind of engineering I like.
 
 ## AI adoption is a leadership problem, not a software rollout
 

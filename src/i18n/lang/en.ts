@@ -81,6 +81,8 @@ export default {
 
     projectsTitle: "Projects",
     projectsDesc: "Side projects and things I've built.",
+    projectsMore:
+      "There are plenty more — client work, older builds and half-finished experiments. I'll add them here as soon as I get a free weekend.",
 
     linksTitle: "Links",
     linksDesc: "All my profiles and sites in one place.",
