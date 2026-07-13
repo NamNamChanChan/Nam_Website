@@ -1,6 +1,7 @@
 ---
 import InstagramIcon from "@/assets/icons/socials/instagram.svg";
 import LinkedInIcon from "@/assets/icons/socials/linkedin.svg";
+import ShareButton from "./ShareButton.astro";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
 
@@ -15,6 +16,8 @@ type Props = {
 const { title, description, url, author, image = "" } = Astro.props;
 const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(locale);
+const dialogId = "post-share-dialog";
+const dialogTitleId = `${dialogId}-title`;
 ---
 
 <div
@@ -36,35 +39,19 @@ const t = useTranslations(locale);
   data-story-downloaded={t.post.shareStoryDownloaded}
   data-linkedin-ready={t.post.shareLinkedInReady}
 >
-  <button
-    type="button"
-    data-share-open
-    class="border-border bg-background hover:border-accent hover:text-accent inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 font-semibold transition-colors"
-    aria-haspopup="dialog"
-  >
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      class="size-5 fill-none stroke-current stroke-2"
-    >
-      <circle cx="18" cy="5" r="3"></circle>
-      <circle cx="6" cy="12" r="3"></circle>
-      <circle cx="18" cy="19" r="3"></circle>
-      <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"></path>
-    </svg>
-    {t.post.shareButton}
-  </button>
+  <ShareButton targetId={dialogId} />
 
   <dialog
+    id={dialogId}
     data-share-dialog
-    aria-labelledby="share-dialog-title"
+    aria-labelledby={dialogTitleId}
     class="bg-background text-foreground m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-xl overflow-hidden rounded-2xl p-0 shadow-2xl backdrop:bg-black/65 backdrop:backdrop-blur-sm open:flex open:flex-col"
   >
     <div
       class="border-border flex items-center justify-between border-b px-5 py-4 sm:px-6"
     >
       <div>
-        <p id="share-dialog-title" class="text-lg font-bold">
+        <p id={dialogTitleId} class="text-lg font-bold">
           {t.post.shareDialogTitle}
         </p>
         <p class="text-muted-foreground mt-0.5 text-sm">
@@ -238,7 +225,9 @@ const t = useTranslations(locale);
 
       const data = control.dataset;
       const dialog = control.querySelector("[data-share-dialog]");
-      const openButton = control.querySelector("[data-share-open]");
+      const openButtons = document.querySelectorAll(
+        `[data-share-trigger][aria-controls="${dialog.id}"]`
+      );
       const closeButton = control.querySelector("[data-share-close]");
       const menu = control.querySelector("[data-share-menu]");
       const storyView = control.querySelector("[data-story-view]");
@@ -266,11 +255,15 @@ const t = useTranslations(locale);
         storyView.classList.remove("hidden");
       };
 
-      openButton.addEventListener("click", () => {
-        showMenu();
-        showStatus("");
-        dialog.showModal();
-      });
+      for (const openButton of openButtons) {
+        if (openButton.hasAttribute("data-share-trigger-ready")) continue;
+        openButton.setAttribute("data-share-trigger-ready", "true");
+        openButton.addEventListener("click", () => {
+          showMenu();
+          showStatus("");
+          dialog.showModal();
+        });
+      }
 
       closeButton.addEventListener("click", () => dialog.close());
       control

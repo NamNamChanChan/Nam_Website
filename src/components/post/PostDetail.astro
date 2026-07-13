@@ -11,6 +11,7 @@ import { slugifyStr } from "@/utils/slugify";
 import { toTransitionName } from "@/utils/toTransitionName";
 import { counterpartId, otherLocale } from "@/utils/locale";
 import EditPost from "./EditPost.astro";
+import ShareButton from "./ShareButton.astro";
 import ShareLinks from "./ShareLinks.astro";
 import BackButton from "./BackButton.astro";
 import BackToTopButton from "./BackToTopButton.astro";
@@ -125,6 +126,10 @@ const altUrl = alternateUrl ?? getRelativeLocaleUrl(other, "posts");
         |
       </span>
       <EditPost {hideEditPost} {post} class="max-sm:hidden" />
+    </div>
+
+    <div class="mt-5">
+      <ShareButton targetId="post-share-dialog" />
     </div>
 
     <article
