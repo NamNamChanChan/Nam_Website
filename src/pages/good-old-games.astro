@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import GoodOldGame from "@/components/GoodOldGame.astro";
+import config from "@/config";
+---
+
+<Layout
+  title={`Good Old Games | ${config.site.title}`}
+  description="Play Who Has The Biggest Brain?, the preserved 2009 Playfish Flash game, in a modern browser."
+>
+  <Header />
+  <Breadcrumb />
+
+  <Main
+    pageTitle="Good Old Games"
+    pageDesc="Old web games deserve more than a broken plugin icon."
+  >
+    <GoodOldGame />
+  </Main>
+
+  <Footer />
+</Layout>

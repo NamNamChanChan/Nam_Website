@@ -1,0 +1,211 @@
+---
+import config from "@/config";
+import { getAssetPath } from "@/utils/withBase";
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const isZh = locale === "zh";
+const ruffleScript = getAssetPath("vendor/ruffle/ruffle.js");
+const previewImage = getAssetPath("games/whtbb/preview.png");
+const swfUrl = getAssetPath(
+  "games/whtbb/brain_game_2_6_7_translated_v1.swf"
+);
+
+const copy = isZh
+  ? {
+      intro:
+        "把舊互聯網的一小角保存下來。這款 2009 年的 Facebook Flash 遊戲和模擬器都存放在本站，無需依賴外部服務，也可以在現代瀏覽器直接玩。",
+      playHint: "點一下遊戲畫面開始。建議使用桌面瀏覽器和滑鼠。",
+      playLabel: "開始遊戲",
+      loadError: "遊戲載入失敗。請重新整理頁面再試一次。",
+      offlineTitle: "離線保存版本",
+      offlineNote:
+        "這個修復版本可以遊玩，但原本依賴 Facebook 伺服器的統計、挑戰和排行榜功能不會運作。",
+      attribution:
+        "Who Has The Biggest Brain? 由 Playfish 在 2009 年推出。本站保存了一份由 Internet Archive 社群修復的離線版本。",
+      archiveLink: "查看原始保存來源",
+      fallback: "這款遊戲需要 JavaScript 才能運行。",
+    }
+  : {
+      intro:
+        "A small corner of the old web, kept alive. This 2009 Facebook Flash game and its emulator are stored on this site, so it runs in a modern browser without depending on an external service.",
+      playHint:
+        "Click inside the game to start. A desktop browser and mouse work best.",
+      playLabel: "Play preserved game",
+      loadError: "The game could not load. Please refresh the page and try again.",
+      offlineTitle: "Offline preservation build",
+      offlineNote:
+        "The restored game is playable, but statistics, challenges and leaderboards that depended on Facebook's old servers do not work.",
+      attribution:
+        "Who Has The Biggest Brain? was released by Playfish in 2009. This site keeps a local copy of the offline build repaired by the Internet Archive community.",
+      archiveLink: "View the original preservation source",
+      fallback: "JavaScript is required to run this game.",
+    };
+---
+
+<p class="mb-6 text-lg leading-relaxed">{copy.intro}</p>
+
+<section aria-labelledby="game-title">
+  <h2 id="game-title" class="mb-4 text-2xl font-semibold">
+    Who Has The Biggest Brain?
+    <span class="text-muted-foreground font-normal">by Playfish (2009)</span>
+  </h2>
+
+  <div
+    class="border-border overflow-hidden rounded-xl border bg-black shadow-2xl"
+  >
+    <div
+      class="border-border flex items-center justify-between border-b bg-[#171923] px-4 py-3 text-sm text-white"
+    >
+      <div class="flex items-center gap-2" aria-hidden="true">
+        <span class="size-3 rounded-full bg-[#ff5f57]"></span>
+        <span class="size-3 rounded-full bg-[#febc2e]"></span>
+        <span class="size-3 rounded-full bg-[#28c840]"></span>
+      </div>
+      <span class="font-medium tracking-wide">LOCAL FLASH PLAYER</span>
+    </div>
+
+    <div
+      id="whtbb-player"
+      class="flex aspect-[672/502] w-full items-center justify-center bg-black text-center text-sm text-white"
+      data-swf-url={swfUrl}
+      data-error-message={copy.loadError}
+      aria-label="Who Has The Biggest Brain? — playable Flash game"
+    >
+      <button
+        type="button"
+        class="group relative block size-full cursor-pointer overflow-hidden bg-black focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white"
+        data-game-preview
+        aria-label={copy.playLabel}
+      >
+        <img
+          src={previewImage}
+          alt=""
+          width="672"
+          height="502"
+          class="size-full object-cover transition-transform duration-300 group-hover:scale-[1.01]"
+          loading="eager"
+          decoding="async"
+        />
+        <span
+          class="absolute inset-0 flex items-center justify-center bg-black/5 transition-colors group-hover:bg-black/15"
+          aria-hidden="true"
+        >
+          <span
+            class="flex size-24 items-center justify-center rounded-full bg-black/75 shadow-2xl ring-2 ring-white/90 backdrop-blur-sm transition-transform group-hover:scale-105 sm:size-28"
+          >
+            <svg viewBox="0 0 64 64" class="ml-1 size-12 fill-white sm:size-14">
+              <path d="M18 10v44l36-22z"></path>
+            </svg>
+          </span>
+        </span>
+        <span
+          class="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/75 px-4 py-2 font-semibold whitespace-nowrap text-white shadow-lg backdrop-blur-sm"
+        >
+          {copy.playLabel}
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <p class="text-muted-foreground mt-3 text-center text-sm">
+    {copy.playHint}
+  </p>
+
+  <div class="mt-8 grid gap-4 sm:grid-cols-2">
+    <div class="border-border rounded-lg border p-5">
+      <h3 class="text-accent text-xl font-semibold">
+        Who Has The Biggest Brain?
+      </h3>
+      <p class="mt-3 leading-relaxed">{copy.attribution}</p>
+      <a
+        href="https://archive.org/details/whtbb"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-accent mt-4 inline-block decoration-dashed underline-offset-4 hover:underline"
+      >
+        {copy.archiveLink}
+        <span aria-hidden="true">&nearr;</span>
+      </a>
+    </div>
+
+    <aside class="border-border bg-muted/30 rounded-lg border p-5">
+      <h3 class="font-semibold">{copy.offlineTitle}</h3>
+      <p class="text-muted-foreground mt-3 leading-relaxed">
+        {copy.offlineNote}
+      </p>
+    </aside>
+  </div>
+
+  <noscript>
+    <p class="mt-4">{copy.fallback}</p>
+  </noscript>
+</section>
+
+<script is:inline src={ruffleScript}></script>
+<script is:inline>
+  (() => {
+    const initializeGame = () => {
+      const container = document.querySelector("#whtbb-player");
+
+      if (!(container instanceof HTMLElement)) return;
+      if (container.dataset.initialized === "true") return;
+      if (container.dataset.previewBound === "true") return;
+
+      const preview = container.querySelector("[data-game-preview]");
+      if (!(preview instanceof HTMLButtonElement)) return;
+
+      const showError = () => {
+        container.dataset.initialized = "false";
+        const message = document.createElement("p");
+        message.className = "px-6";
+        message.textContent =
+          container.dataset.errorMessage || "The game could not load.";
+        container.replaceChildren(message);
+      };
+
+      const startGame = () => {
+        const ruffle = window.RufflePlayer?.newest?.();
+        const swf = container.dataset.swfUrl;
+
+        if (!ruffle || !swf) {
+          showError();
+          return;
+        }
+
+        container.dataset.initialized = "true";
+
+        try {
+          const player = ruffle.createPlayer();
+          player.style.width = "100%";
+          player.style.height = "100%";
+          player.setAttribute(
+            "aria-label",
+            "Who Has The Biggest Brain? — playable Flash game"
+          );
+          container.replaceChildren(player);
+
+          Promise.resolve(
+            player.ruffle().load({
+              url: swf,
+              autoplay: "on",
+              unmuteOverlay: "hidden",
+              splashScreen: false,
+            })
+          ).catch(showError);
+        } catch {
+          showError();
+        }
+      };
+
+      container.dataset.previewBound = "true";
+      preview.addEventListener("click", startGame, { once: true });
+    };
+
+    initializeGame();
+
+    if (!window.__goodOldGamePageLoadListener) {
+      document.addEventListener("astro:page-load", initializeGame);
+      window.__goodOldGamePageLoadListener = true;
+    }
+  })();
+</script>

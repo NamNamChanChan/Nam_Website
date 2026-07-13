@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import GoodOldGame from "@/components/GoodOldGame.astro";
+import config from "@/config";
+---
+
+<Layout
+  title={`Good Old Games | ${config.site.title}`}
+  description="在現代瀏覽器重玩 Playfish 於 2009 年推出、經保存修復的 Flash 遊戲 Who Has The Biggest Brain?。"
+>
+  <Header />
+  <Breadcrumb />
+
+  <Main
+    pageTitle="Good Old Games"
+    pageDesc="舊網絡遊戲值得留下來，不應只剩下一個失效的 plugin 圖示。"
+  >
+    <GoodOldGame />
+  </Main>
+
+  <Footer />
+</Layout>
