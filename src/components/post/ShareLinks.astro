@@ -1,54 +1,632 @@
 ---
-import LinkButton from "@/components/LinkButton.astro";
-import { tplStr, useTranslations } from "@/i18n";
+import InstagramIcon from "@/assets/icons/socials/instagram.svg";
+import LinkedInIcon from "@/assets/icons/socials/linkedin.svg";
+import { useTranslations } from "@/i18n";
 import config from "@/config";
 
-const { shareLinks } = config;
-const t = useTranslations(Astro.currentLocale);
+type Props = {
+  title: string;
+  description: string;
+  url: string;
+  author: string;
+  image?: string;
+};
 
-const icons = import.meta.glob<{
-  default: (_props: Record<string, unknown>) => unknown;
-}>("/src/assets/icons/socials/*.svg");
-
-const pageUrl = Astro.url;
-
-const platformLabel = (name: string) =>
-  name.charAt(0).toUpperCase() + name.slice(1);
-
-const items = await Promise.all(
-  shareLinks.map(async ({ name, url, linkTitle }) => {
-    const mod = await icons[`/src/assets/icons/socials/${name}.svg`]?.();
-    const Icon = mod?.default;
-    const title =
-      linkTitle ??
-      (name === "mail"
-        ? t.post.sharePostViaEmail
-        : tplStr(t.post.sharePostOn, { platform: platformLabel(name) }));
-    return { url, title, Icon };
-  })
-);
+const { title, description, url, author, image = "" } = Astro.props;
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
 ---
 
-{
-  items.some(({ Icon }) => Icon) && (
-    <div class="flex flex-none flex-col items-center justify-center gap-1 md:items-start">
-      <span class="italic">{t.post.sharePostIntro}</span>
-      <div class="text-center">
-        {items.map(({ url, title, Icon }) =>
-          Icon ? (
-            <LinkButton
-              href={`${url}${pageUrl}`}
-              class="scale-90 p-2 hover:rotate-6 sm:p-1"
-              title={title}
-              target="_blank"
-              rel="noopener noreferrer"
+<div
+  class="share-control flex items-start"
+  data-share-control
+  data-title={title}
+  data-description={description}
+  data-url={url}
+  data-author={author}
+  data-image={image}
+  data-locale={locale}
+  data-site-name={config.site.title}
+  data-copied={t.post.shareLinkCopied}
+  data-copy-error={t.post.shareCopyError}
+  data-story-generating={t.post.shareStoryGenerating}
+  data-story-ready={t.post.shareStoryReady}
+  data-story-error={t.post.shareStoryError}
+  data-story-shared={t.post.shareStoryShared}
+  data-story-downloaded={t.post.shareStoryDownloaded}
+  data-linkedin-ready={t.post.shareLinkedInReady}
+>
+  <button
+    type="button"
+    data-share-open
+    class="border-border bg-background hover:border-accent hover:text-accent inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 font-semibold transition-colors"
+    aria-haspopup="dialog"
+  >
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      class="size-5 fill-none stroke-current stroke-2"
+    >
+      <circle cx="18" cy="5" r="3"></circle>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="19" r="3"></circle>
+      <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"></path>
+    </svg>
+    {t.post.shareButton}
+  </button>
+
+  <dialog
+    data-share-dialog
+    aria-labelledby="share-dialog-title"
+    class="bg-background text-foreground m-auto max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-xl overflow-hidden rounded-2xl p-0 shadow-2xl backdrop:bg-black/65 backdrop:backdrop-blur-sm open:flex open:flex-col"
+  >
+    <div
+      class="border-border flex items-center justify-between border-b px-5 py-4 sm:px-6"
+    >
+      <div>
+        <p id="share-dialog-title" class="text-lg font-bold">
+          {t.post.shareDialogTitle}
+        </p>
+        <p class="text-muted-foreground mt-0.5 text-sm">
+          {t.post.shareDialogDescription}
+        </p>
+      </div>
+      <button
+        type="button"
+        data-share-close
+        aria-label={t.post.shareClose}
+        class="hover:bg-muted ms-4 rounded-full p-2 transition-colors"
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          class="size-5 fill-none stroke-current stroke-2"
+        >
+          <path d="M6 6l12 12M18 6 6 18"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div data-share-menu class="space-y-3 overflow-y-auto p-5 sm:p-6">
+      <button
+        type="button"
+        data-copy-link
+        class="border-border hover:border-accent hover:bg-muted/60 group flex w-full items-center gap-4 rounded-xl border p-4 text-start transition-colors"
+      >
+        <span
+          class="bg-muted text-accent grid size-11 flex-none place-items-center rounded-full"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            class="size-5 fill-none stroke-current stroke-2"
+          >
+            <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+            <path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"
+            ></path>
+          </svg>
+        </span>
+        <span class="min-w-0">
+          <span class="block font-semibold">{t.post.shareCopyLink}</span>
+          <span class="text-muted-foreground block truncate text-sm">{url}</span
+          >
+        </span>
+      </button>
+
+      <button
+        type="button"
+        data-instagram-story
+        class="border-border hover:border-accent hover:bg-muted/60 group flex w-full items-center gap-4 rounded-xl border p-4 text-start transition-colors"
+      >
+        <span
+          class="bg-muted text-accent grid size-11 flex-none place-items-center rounded-full"
+        >
+          <InstagramIcon
+            class="size-6 fill-none stroke-current stroke-2"
+            aria-hidden="true"
+          />
+        </span>
+        <span>
+          <span class="block font-semibold">{t.post.shareInstagram}</span>
+          <span class="text-muted-foreground block text-sm">
+            {t.post.shareInstagramDescription}
+          </span>
+        </span>
+      </button>
+
+      <button
+        type="button"
+        data-linkedin-share
+        class="border-border hover:border-accent hover:bg-muted/60 group flex w-full items-center gap-4 rounded-xl border p-4 text-start transition-colors"
+      >
+        <span
+          class="bg-muted text-accent grid size-11 flex-none place-items-center rounded-full"
+        >
+          <LinkedInIcon
+            class="size-6 fill-none stroke-current stroke-2"
+            aria-hidden="true"
+          />
+        </span>
+        <span>
+          <span class="block font-semibold">{t.post.shareLinkedIn}</span>
+          <span class="text-muted-foreground block text-sm">
+            {t.post.shareLinkedInDescription}
+          </span>
+        </span>
+      </button>
+    </div>
+
+    <div data-story-view class="hidden overflow-y-auto p-5 sm:p-6">
+      <button
+        type="button"
+        data-story-back
+        class="text-muted-foreground hover:text-accent mb-4 inline-flex items-center gap-1.5 text-sm font-semibold"
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          class="size-4 fill-none stroke-current stroke-2"
+        >
+          <path d="m15 18-6-6 6-6"></path>
+        </svg>
+        {t.post.shareBack}
+      </button>
+
+      <div class="flex flex-col items-center gap-5 sm:flex-row sm:items-start">
+        <div
+          class="bg-muted aspect-[9/16] w-full max-w-56 overflow-hidden rounded-xl shadow-lg"
+        >
+          <img
+            data-story-preview
+            class="size-full object-cover"
+            alt={t.post.shareStoryPreviewAlt}
+          />
+        </div>
+        <div class="flex-1 text-center sm:text-start">
+          <h2 class="text-lg font-bold">{t.post.shareStoryTitle}</h2>
+          <p class="text-muted-foreground mt-2 text-sm leading-6">
+            {t.post.shareStoryInstructions}
+          </p>
+          <div class="mt-5 flex flex-col gap-2">
+            <button
+              type="button"
+              data-story-share
+              class="bg-accent text-accent-foreground inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 font-semibold transition-opacity hover:opacity-90"
             >
-              <Icon class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" />
-              <span class="sr-only">{title}</span>
-            </LinkButton>
-          ) : null
-        )}
+              <InstagramIcon
+                class="size-5 fill-none stroke-current stroke-2"
+                aria-hidden="true"
+              />
+              {t.post.shareStoryImage}
+            </button>
+            <button
+              type="button"
+              data-story-download
+              class="border-border hover:border-accent hover:text-accent inline-flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 font-semibold transition-colors"
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                class="size-5 fill-none stroke-current stroke-2"
+              >
+                <path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14"></path>
+              </svg>
+              {t.post.shareDownloadImage}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
+
+    <p
+      data-share-status
+      aria-live="polite"
+      class="text-muted-foreground border-border min-h-11 border-t px-5 py-3 text-center text-sm sm:px-6"
+    >
+    </p>
+  </dialog>
+</div>
+
+<script is:inline data-astro-rerun>
+  function initPostShareControls() {
+    const controls = document.querySelectorAll(
+      "[data-share-control]:not([data-share-ready])"
+    );
+
+    for (const control of controls) {
+      control.setAttribute("data-share-ready", "true");
+
+      const data = control.dataset;
+      const dialog = control.querySelector("[data-share-dialog]");
+      const openButton = control.querySelector("[data-share-open]");
+      const closeButton = control.querySelector("[data-share-close]");
+      const menu = control.querySelector("[data-share-menu]");
+      const storyView = control.querySelector("[data-story-view]");
+      const status = control.querySelector("[data-share-status]");
+      const storyPreview = control.querySelector("[data-story-preview]");
+      const storyButton = control.querySelector("[data-instagram-story]");
+
+      let storyBlob = null;
+      let storyObjectUrl = "";
+
+      const showStatus = (message, isError = false) => {
+        status.textContent = message;
+        status.classList.toggle("text-red-600", isError);
+        status.classList.toggle("dark:text-red-400", isError);
+        status.classList.toggle("text-muted-foreground", !isError);
+      };
+
+      const showMenu = () => {
+        menu.classList.remove("hidden");
+        storyView.classList.add("hidden");
+      };
+
+      const showStory = () => {
+        menu.classList.add("hidden");
+        storyView.classList.remove("hidden");
+      };
+
+      openButton.addEventListener("click", () => {
+        showMenu();
+        showStatus("");
+        dialog.showModal();
+      });
+
+      closeButton.addEventListener("click", () => dialog.close());
+      control
+        .querySelector("[data-story-back]")
+        .addEventListener("click", () => {
+          showMenu();
+          showStatus("");
+        });
+
+      dialog.addEventListener("click", event => {
+        if (event.target === dialog) dialog.close();
+      });
+
+      control
+        .querySelector("[data-copy-link]")
+        .addEventListener("click", async () => {
+          const copied = await copyShareText(data.url);
+          showStatus(copied ? data.copied : data.copyError, !copied);
+        });
+
+      control
+        .querySelector("[data-linkedin-share]")
+        .addEventListener("click", async () => {
+          const linkedInUrl =
+            "https://www.linkedin.com/sharing/share-offsite/?url=" +
+            encodeURIComponent(data.url);
+          window.open(
+            linkedInUrl,
+            "linkedin-share",
+            "popup,width=720,height=720,noopener,noreferrer"
+          );
+
+          const shareText = `${data.description}\n\n${data.url}`;
+          const copied = await copyShareText(shareText);
+          showStatus(copied ? data.linkedinReady : data.copyError, !copied);
+        });
+
+      storyButton.addEventListener("click", async () => {
+        storyButton.disabled = true;
+        showStatus(data.storyGenerating);
+
+        try {
+          storyBlob = await createStoryImage(data);
+          if (storyObjectUrl) URL.revokeObjectURL(storyObjectUrl);
+          storyObjectUrl = URL.createObjectURL(storyBlob);
+          storyPreview.src = storyObjectUrl;
+          showStory();
+          showStatus(data.storyReady);
+        } catch {
+          showStatus(data.storyError, true);
+        } finally {
+          storyButton.disabled = false;
+        }
+      });
+
+      control
+        .querySelector("[data-story-share]")
+        .addEventListener("click", async () => {
+          if (!storyBlob) return;
+
+          const file = new File([storyBlob], storyFilename(data.title), {
+            type: "image/png",
+          });
+          const canShareFiles =
+            typeof navigator.share === "function" &&
+            (!navigator.canShare || navigator.canShare({ files: [file] }));
+
+          if (canShareFiles) {
+            try {
+              await navigator.share({
+                files: [file],
+                title: data.title,
+                text: data.url,
+              });
+              showStatus(data.storyShared);
+            } catch (error) {
+              if (error?.name !== "AbortError") {
+                downloadStory(storyBlob, data.title);
+                showStatus(data.storyDownloaded);
+              }
+            }
+          } else {
+            downloadStory(storyBlob, data.title);
+            showStatus(data.storyDownloaded);
+          }
+        });
+
+      control
+        .querySelector("[data-story-download]")
+        .addEventListener("click", () => {
+          if (!storyBlob) return;
+          downloadStory(storyBlob, data.title);
+          showStatus(data.storyDownloaded);
+        });
+    }
+  }
+
+  async function copyShareText(text) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+
+      const input = document.createElement("textarea");
+      input.value = text;
+      input.setAttribute("readonly", "");
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      document.body.appendChild(input);
+      input.select();
+      const copied = document.execCommand("copy");
+      input.remove();
+      return copied;
+    } catch {
+      return false;
+    }
+  }
+
+  function storyFilename(title) {
+    const slug = title
+      .toLocaleLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 64);
+    return `${slug || "blog-post"}-story.png`;
+  }
+
+  function downloadStory(blob, title) {
+    const href = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = href;
+    link.download = storyFilename(title);
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(href), 1000);
+  }
+
+  async function loadStoryImage(src) {
+    if (!src) return null;
+
+    return new Promise(resolve => {
+      const image = new Image();
+      image.crossOrigin = "anonymous";
+      image.onload = () => resolve(image);
+      image.onerror = () => resolve(null);
+      image.src = src;
+    });
+  }
+
+  function drawImageCover(context, image, x, y, width, height) {
+    const scale = Math.max(width / image.width, height / image.height);
+    const sourceWidth = width / scale;
+    const sourceHeight = height / scale;
+    const sourceX = (image.width - sourceWidth) / 2;
+    const sourceY = (image.height - sourceHeight) / 2;
+    context.drawImage(
+      image,
+      sourceX,
+      sourceY,
+      sourceWidth,
+      sourceHeight,
+      x,
+      y,
+      width,
+      height
+    );
+  }
+
+  function roundedRect(context, x, y, width, height, radius) {
+    context.beginPath();
+    context.roundRect(x, y, width, height, radius);
+  }
+
+  function textSegments(text, locale) {
+    if (typeof Intl.Segmenter === "function") {
+      const segmenter = new Intl.Segmenter(locale, { granularity: "word" });
+      return Array.from(segmenter.segment(text), part => part.segment);
+    }
+    return text.split(/(\s+)/);
+  }
+
+  function wrapStoryText(context, text, maxWidth, locale) {
+    const segments = textSegments(text, locale);
+    const lines = [];
+    let line = "";
+
+    for (const segment of segments) {
+      const nextLine = line + segment;
+      if (line && context.measureText(nextLine).width > maxWidth) {
+        lines.push(line.trim());
+        line = segment.trimStart();
+      } else {
+        line = nextLine;
+      }
+    }
+
+    if (line.trim()) lines.push(line.trim());
+    return lines;
+  }
+
+  function ellipsizeLine(context, line, maxWidth) {
+    let value = line.trim();
+    while (value && context.measureText(`${value}…`).width > maxWidth) {
+      value = value.slice(0, -1);
+    }
+    return `${value.trim()}…`;
+  }
+
+  function drawStoryLines(
+    context,
+    lines,
+    x,
+    y,
+    lineHeight,
+    maxLines,
+    maxWidth
+  ) {
+    const visible = lines.slice(0, maxLines);
+    if (lines.length > maxLines) {
+      visible[maxLines - 1] = ellipsizeLine(
+        context,
+        visible[maxLines - 1],
+        maxWidth
+      );
+    }
+    visible.forEach((line, index) =>
+      context.fillText(line, x, y + index * lineHeight)
+    );
+    return y + visible.length * lineHeight;
+  }
+
+  async function createStoryImage(data) {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1080;
+    canvas.height = 1920;
+    const context = canvas.getContext("2d");
+    const image = await loadStoryImage(data.image);
+
+    const background = context.createLinearGradient(0, 0, 1080, 1920);
+    background.addColorStop(0, "#111827");
+    background.addColorStop(0.55, "#212737");
+    background.addColorStop(1, "#3a1d14");
+    context.fillStyle = background;
+    context.fillRect(0, 0, 1080, 1920);
+
+    if (image) {
+      drawImageCover(context, image, 0, 0, 1080, 1920);
+      const overlay = context.createLinearGradient(0, 0, 0, 1920);
+      overlay.addColorStop(0, "rgba(10, 14, 25, 0.38)");
+      overlay.addColorStop(0.36, "rgba(10, 14, 25, 0.68)");
+      overlay.addColorStop(1, "rgba(10, 14, 25, 0.96)");
+      context.fillStyle = overlay;
+      context.fillRect(0, 0, 1080, 1920);
+    }
+
+    context.fillStyle = "#ff6b01";
+    context.fillRect(0, 0, 24, 1920);
+    context.fillRect(88, 116, 92, 12);
+
+    roundedRect(context, 88, 170, 904, 1548, 46);
+    context.fillStyle = "rgba(13, 18, 31, 0.78)";
+    context.fill();
+    context.strokeStyle = "rgba(255, 255, 255, 0.16)";
+    context.lineWidth = 2;
+    context.stroke();
+
+    context.fillStyle = "#ff6b01";
+    context.font =
+      "700 30px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
+    context.letterSpacing = "3px";
+    context.fillText(
+      `${data.siteName.toLocaleUpperCase()}  •  ${data.locale === "zh" ? "文章" : "BLOG"}`,
+      150,
+      270
+    );
+    context.letterSpacing = "0px";
+
+    context.fillStyle = "#f8fafc";
+    let titleSize = 82;
+    let titleLines = [];
+    do {
+      context.font = `700 ${titleSize}px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`;
+      titleLines = wrapStoryText(context, data.title, 780, data.locale);
+      if (titleLines.length > 6) titleSize -= 4;
+    } while (titleLines.length > 6 && titleSize > 58);
+
+    const titleLineHeight = Math.round(titleSize * 1.18);
+    const titleBottom = drawStoryLines(
+      context,
+      titleLines,
+      150,
+      410,
+      titleLineHeight,
+      6,
+      780
+    );
+
+    context.fillStyle = "#ff6b01";
+    context.fillRect(150, titleBottom + 30, 128, 8);
+
+    context.fillStyle = "#d7dce5";
+    context.font =
+      '400 36px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+    const descriptionLines = wrapStoryText(
+      context,
+      data.description,
+      780,
+      data.locale
+    );
+    drawStoryLines(
+      context,
+      descriptionLines,
+      150,
+      titleBottom + 105,
+      54,
+      6,
+      780
+    );
+
+    context.fillStyle = "#94a3b8";
+    context.font =
+      '600 28px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+    context.fillText(
+      `${data.locale === "zh" ? "作者" : "BY"}  ${data.author}`,
+      150,
+      1515
+    );
+
+    roundedRect(context, 150, 1575, 780, 82, 20);
+    context.fillStyle = "#ff6b01";
+    context.fill();
+    context.fillStyle = "#ffffff";
+    context.font =
+      '700 30px ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+    context.fillText(
+      data.locale === "zh" ? "閱讀完整文章  →" : "READ THE FULL POST  →",
+      190,
+      1627
+    );
+
+    context.fillStyle = "#f8fafc";
+    context.font =
+      "600 28px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
+    const hostname = new URL(data.url).hostname.replace(/^www\./, "");
+    context.fillText(hostname, 88, 1810);
+    context.fillStyle = "#ff6b01";
+    context.fillRect(88, 1845, 904, 8);
+
+    return new Promise((resolve, reject) => {
+      canvas.toBlob(
+        blob =>
+          blob ? resolve(blob) : reject(new Error("Canvas export failed")),
+        "image/png"
+      );
+    });
+  }
+
+  initPostShareControls();
+</script>
