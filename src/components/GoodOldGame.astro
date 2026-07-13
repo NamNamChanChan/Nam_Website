@@ -21,7 +21,26 @@ const copy = isZh
       offlineNote:
         "這個修復版本可以遊玩，但原本依賴 Facebook 伺服器的統計、挑戰和排行榜功能不會運作。",
       attribution:
-        "Who Has The Biggest Brain? 由 Playfish 在 2009 年推出。本站保存了一份由 Internet Archive 社群修復的離線版本。",
+        "Who Has The Biggest Brain? 由 Playfish 在 2009 年推出；Playfish 後來被 EA 收購，遊戲亦隨 Facebook 版本停止服務而消失。本站保存的是社群修復的離線版本。",
+      creditsTitle: "是誰把這款遊戲帶回來？",
+      creditsIntro:
+        "這個可以遊玩的版本不是憑空出現。以下幾位保存者接力找回檔案、修改遊戲，讓它在原有伺服器關閉多年後仍可運行：",
+      pandaRole:
+        "保存並上載遊戲，修改程式讓它可以完全離線運行，也是 Internet Archive 保存項目的上載者。",
+      rachidRole:
+        "提供最重要的遊戲主檔案，令這次修復有可能開始。",
+      alejandroRole: "協助修復遊戲內的多個 glitch。",
+      ruffleRole:
+        "開發並維護開源 Flash 模擬器，讓保存下來的 SWF 可以在現代瀏覽器運行。本站使用本地保存的 Ruffle。",
+      updateTitle: "保存項目記錄的更新（9/8/25）",
+      updateItems: [
+        "修正 Car Path 正確符號消失的問題。",
+        "參考 iPhone 版本，為 Hexagon Path 加入重設程序。",
+        "移除已經失效、只在橫向模式出現的計分板。",
+        "移除上載分數的彈出視窗。",
+      ],
+      creditNote:
+        "我們只是再保存一份本地副本。真正把遊戲帶回來的功勞，屬於以上保存者和持續維護 Ruffle 的貢獻者。",
       archiveLink: "查看原始保存來源",
       fallback: "這款遊戲需要 JavaScript 才能運行。",
     }
@@ -36,7 +55,26 @@ const copy = isZh
       offlineNote:
         "The restored game is playable, but statistics, challenges and leaderboards that depended on Facebook's old servers do not work.",
       attribution:
-        "Who Has The Biggest Brain? was released by Playfish in 2009. This site keeps a local copy of the offline build repaired by the Internet Archive community.",
+        "Who Has The Biggest Brain? was released by Playfish in 2009. Playfish was later acquired by EA, and the game disappeared when its Facebook service was shut down. This site keeps a local copy of the community-restored offline build.",
+      creditsTitle: "Who brought this game back?",
+      creditsIntro:
+        "This playable build did not appear by itself. A small chain of preservation work recovered the file, repaired the game and kept it running years after its original servers disappeared:",
+      pandaRole:
+        "archived and uploaded the game, modified it to work fully offline, and published the preservation item on Internet Archive.",
+      rachidRole:
+        "provided the essential main game file that made the recovery possible.",
+      alejandroRole: "helped repair several glitches in the recovered build.",
+      ruffleRole:
+        "build and maintain the open-source Flash emulator that lets the preserved SWF run in modern browsers. This site hosts its own local Ruffle copy.",
+      updateTitle: "Updates recorded on the preservation item (9/8/25)",
+      updateItems: [
+        "Fixed the invisible correct-sign glitch in Car Path.",
+        "Added the Hexagon Path reset sequence from the iPhone version.",
+        "Removed the obsolete landscape-only score board.",
+        "Removed the upload-score pop-up.",
+      ],
+      creditNote:
+        "We are only keeping another local copy. The credit for bringing the game back belongs to these preservation contributors and to everyone maintaining Ruffle.",
       archiveLink: "View the original preservation source",
       fallback: "JavaScript is required to run this game.",
     };
@@ -135,6 +173,89 @@ const copy = isZh
       </p>
     </aside>
   </div>
+
+  <section
+    class="border-border bg-muted/20 mt-4 rounded-xl border p-5 sm:p-7"
+    aria-labelledby="preservation-credits-title"
+  >
+    <h3
+      id="preservation-credits-title"
+      class="text-accent text-2xl font-semibold"
+    >
+      {copy.creditsTitle}
+    </h3>
+    <p class="mt-3 max-w-3xl leading-relaxed">{copy.creditsIntro}</p>
+
+    <dl class="mt-6 grid gap-4 sm:grid-cols-2">
+      <div class="border-border bg-background rounded-lg border p-4">
+        <dt class="font-semibold">
+          <a
+            href="https://archive.org/details/@chuzzleado-games"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-accent decoration-dashed underline-offset-4 hover:underline"
+          >
+            PandaFake⚡
+            <span aria-hidden="true">&nearr;</span>
+          </a>
+        </dt>
+        <dd class="text-muted-foreground mt-2 leading-relaxed">
+          {copy.pandaRole}
+        </dd>
+      </div>
+
+      <div class="border-border bg-background rounded-lg border p-4">
+        <dt class="font-semibold">BattleAncient (Rachid)</dt>
+        <dd class="text-muted-foreground mt-2 leading-relaxed">
+          {copy.rachidRole}
+        </dd>
+      </div>
+
+      <div class="border-border bg-background rounded-lg border p-4">
+        <dt class="font-semibold">floydian (Alejandro)</dt>
+        <dd class="text-muted-foreground mt-2 leading-relaxed">
+          {copy.alejandroRole}
+        </dd>
+      </div>
+
+      <div class="border-border bg-background rounded-lg border p-4">
+        <dt class="font-semibold">
+          <a
+            href="https://ruffle.rs/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-accent decoration-dashed underline-offset-4 hover:underline"
+          >
+            Ruffle contributors
+            <span aria-hidden="true">&nearr;</span>
+          </a>
+        </dt>
+        <dd class="text-muted-foreground mt-2 leading-relaxed">
+          {copy.ruffleRole}
+        </dd>
+      </div>
+    </dl>
+
+    <div class="border-border mt-6 border-t pt-6">
+      <h4 class="font-semibold">{copy.updateTitle}</h4>
+      <ul class="mt-3 list-disc space-y-2 ps-6">
+        {copy.updateItems.map(item => <li>{item}</li>)}
+      </ul>
+    </div>
+
+    <p class="text-muted-foreground mt-6 text-sm leading-relaxed">
+      {copy.creditNote}
+      <a
+        href="https://archive.org/details/whtbb"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-accent ms-1 decoration-dashed underline-offset-4 hover:underline"
+      >
+        {copy.archiveLink}
+        <span aria-hidden="true">&nearr;</span>
+      </a>
+    </p>
+  </section>
 
   <noscript>
     <p class="mt-4">{copy.fallback}</p>

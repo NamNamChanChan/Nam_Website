@@ -9,7 +9,9 @@ import Main from "@/components/Main.astro";
 import Card from "@/components/Card.astro";
 import Footer from "@/components/Footer.astro";
 import Pagination from "@/components/Pagination.astro";
+import PostTags from "@/components/PostTags.astro";
 import { getSortedPosts } from "@/utils/getSortedPosts";
+import { getUniqueTags } from "@/utils/getUniqueTags";
 import { filterByLang, otherLocale } from "@/utils/locale";
 import { useTranslations } from "@/i18n";
 import config from "@/config";
@@ -31,6 +33,12 @@ const t = useTranslations(locale);
 // switcher to the other posts index and emit hreflang only on page 1.
 const altUrl = getRelativeLocaleUrl(otherLocale(locale), "posts");
 const alternateUrl = page.currentPage === 1 ? altUrl : null;
+
+const posts = filterByLang(
+  await getCollection("posts", ({ data }) => !data.draft),
+  locale
+);
+const tags = getUniqueTags(posts);
 ---
 
 <Layout title={`${t.pages.postsTitle} | ${config.site.title}`} {alternateUrl}>
@@ -45,6 +53,16 @@ const alternateUrl = page.currentPage === 1 ? altUrl : null;
   </Main>
 
   <Pagination {page} />
+
+  {
+    page.currentPage === 1 && (
+      <PostTags
+        {tags}
+        title={t.pages.tagsTitle}
+        description={t.pages.tagsDesc}
+      />
+    )
+  }
 
   <Footer noMarginTop={page.lastPage > 1} />
 </Layout>

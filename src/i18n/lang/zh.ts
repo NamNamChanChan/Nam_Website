@@ -5,6 +5,7 @@ export default {
     home: "首頁",
     posts: "文章",
     tags: "標籤",
+    games: "遊戲",
     about: "關於",
     archives: "彙整",
     search: "搜尋",
