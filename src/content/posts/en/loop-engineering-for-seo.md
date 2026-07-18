@@ -1,6 +1,6 @@
 ---
 title: "Loop engineering for SEO: improve one page at a time"
-description: "A practical SEO example of loop engineering: find one opportunity, make one bounded change, verify it, wait for evidence and either repeat or stop."
+description: "A practical SEO loop that defines a measurable outcome, improves one page, reads the evidence and uses it to repeat, revert or stop."
 pubDatetime: 2026-07-18T16:30:00+08:00
 ogImage: ../../../assets/images/loop-engineering-seo-banner.png
 draft: false
@@ -18,7 +18,7 @@ Most AI-for-SEO demonstrations end in the same place: type a keyword, generate a
 
 That is not loop engineering. It is a content generator with a repeat button.
 
-A properly engineered SEO loop is almost the opposite. It starts with evidence from your own site, selects **one existing page**, proposes **one bounded improvement**, runs technical and editorial checks, stops for human approval, records what happened, then waits long enough to see whether the change helped.
+A properly engineered SEO loop is almost the opposite. It starts with evidence from your own site, selects **one existing page**, proposes **one bounded improvement**, runs technical and editorial checks, stops for human approval, records what happened, then waits long enough to see whether a predefined measurable outcome improved.
 
 The goal is not more content. The goal is a better decision on the next pass.
 
@@ -40,6 +40,32 @@ The term is still new, but the engineering pattern is familiar:
 6. **Stop, wait, escalate or repeat** according to explicit rules.
 
 A prompt sits inside that system. It is no longer the whole system.
+
+## No measurable outcome, no learning loop
+
+Before the first run, give the loop a **measurement contract**. It should define:
+
+- the observation source;
+- one primary outcome metric;
+- guardrail metrics that must not deteriorate;
+- a baseline and comparison window;
+- the minimum amount of evidence required to make a decision; and
+- the conditions for waiting, revising, escalating, reverting or stopping.
+
+Without that contract, the system can repeat, but it cannot learn from the consequences of its work. It will optimise for the easiest visible activity—articles generated, changes shipped or budget spent—rather than the result the business actually values.
+
+Here, “learn” does not necessarily mean retraining the underlying model. It means **operational learning**: the loop reads an outcome, compares it with the stored baseline, records the decision and uses that state to choose its next action.
+
+Different loops therefore need different evidence:
+
+| Loop                                     | Observation source                                        | Possible measurable outcome                                             |
+| ---------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Improve an existing search page          | Google Search Console                                     | Useful clicks for the relevant page-query pair                          |
+| Improve on-site engagement or conversion | Google Analytics                                          | Engaged sessions, key-event rate, leads, purchases or revenue           |
+| Improve paid Facebook or Instagram ads   | Meta Ads Manager                                          | Campaign result, conversion value, or cost per result                   |
+| Protect quality while optimising         | Site checks, support data and human review alongside data | No broken journeys, misleading claims or unacceptable customer outcomes |
+
+These are candidate metrics, not universal prescriptions. The metric must match the objective. Search impressions can show demand, but they do not prove that a visitor found value. Page views can show consumption, but they do not prove conversion. Cheap clicks can look efficient while producing no qualified outcome.
 
 ## Why SEO is a good example—and a dangerous one
 
@@ -66,6 +92,16 @@ discovery:
   source: Google Search Console final data
   comparison_window_days: 28
   maximum_candidates: 5
+measurement:
+  primary_metric: useful page-query clicks
+  diagnostic_metrics:
+    - impressions
+    - click-through rate
+    - average position
+  downstream_guardrail: GA4 organic landing-page key-event rate
+  baseline_window_days: 28
+  comparison_window_days: 28
+  minimum_evidence: defined by the owner before the run
 selection:
   pages_per_run: 1
   requires_human_choice: true
@@ -181,6 +217,14 @@ Submitting a sitemap after publication can help discovery, but Google is clear t
 
 SEO feedback is slow and noisy. The loop should not revise the same title every morning because yesterday's click-through rate moved.
 
+Choose the measurement source according to the part of the journey you are changing:
+
+- [Google Search Console](https://developers.google.com/webmaster-tools/v1/searchanalytics/query) shows how a page appears in organic search through impressions, clicks, click-through rate and average position. It is useful for query-page discovery and search visibility, not for proving a business outcome after the click.
+- [Google Analytics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema) can measure what happens on the site through sessions, engaged sessions, key events, key-event rates and revenue metrics. It can tell the loop whether additional traffic remains engaged or completes an intended action.
+- What people often call separate Facebook Ads or Instagram Ads reporting is normally managed through [Meta Ads Manager](https://www.facebook.com/business/ads/instagram-ad). For a paid-social loop, the primary metric might be qualified leads, purchases, conversion value or cost per result; reach, impressions, frequency, clicks and spend are supporting diagnostics rather than success by themselves.
+
+Do not pour every available number into the objective. Select **one primary outcome**, then use a small set of diagnostics and guardrails to explain it. Otherwise the loop can cherry-pick whichever metric improved and declare itself successful.
+
 For a modest site, I would choose a 28-day comparison window as an operating decision—not a Google promise—and use finalised data. Record the baseline, publication date, change, checks and next measurement date. When the window closes:
 
 - **done** if the page remains useful and the target signal improves without a concerning trade-off;
@@ -195,7 +239,7 @@ That state is the difference between a loop and repeated amnesia.
 
 Imagine an on-premises AI consultancy with an existing page called `/private-ai-deployment/`. The following numbers are fictional, chosen only to make the decision visible.
 
-The page receives 12,400 impressions and 190 clicks over 28 finalised days for a cluster that includes “private AI deployment checklist”. That is a 1.53% click-through rate, with an average position of 7.8.
+The page receives 12,400 impressions and 190 clicks over 28 finalised days for a cluster that includes “private AI deployment checklist”. That is a 1.53% click-through rate, with an average position of 7.8. The measurement contract selects relevant organic clicks as the primary metric, while the page's Google Analytics key-event rate acts as a downstream guardrail: attracting more clicks is not a win if the visitors immediately disengage or stop completing the intended action.
 
 Those numbers do not prove the title is bad. Position, device, result layout, brand familiarity and query intent all affect clicks. They are enough to create a **review candidate**, not enough to authorise a rewrite.
 
@@ -218,7 +262,7 @@ After technical checks and human approval, the page is published and the baselin
 
 | Evidence                                                 | Loop decision                                      |
 | -------------------------------------------------------- | -------------------------------------------------- |
-| Clicks and CTR improve while the query remains relevant  | Record the change as useful and stop               |
+| Relevant clicks improve and the GA4 guardrail holds      | Record the change as useful and stop               |
 | Impressions are too low or the data window is incomplete | Wait; do not “optimise” noise                      |
 | The page loses useful traffic or reads worse             | Escalate, inspect the cause and consider reverting |
 
@@ -264,24 +308,26 @@ These are not edge cases. They are the obvious direction of travel when speed is
 
 Do not begin with a scheduler. Begin with a spreadsheet or small state file and run the loop manually once a week.
 
-1. Pull one 28-day Search Console comparison using final data.
-2. Ask the loop for no more than five candidates and the evidence for each.
-3. Choose one existing page yourself.
-4. Allow one bounded change and require a readable diff.
-5. Run technical and editorial checks.
-6. Publish only after human approval.
-7. Write the baseline and measurement date into state.
-8. Repeat this manually for six cycles before automating discovery.
+1. Choose one primary measurable outcome and two or three guardrails.
+2. Record their definitions, data sources, baseline and comparison window.
+3. Pull one 28-day Search Console comparison using final data.
+4. Ask the loop for no more than five candidates and the evidence for each.
+5. Choose one existing page yourself.
+6. Allow one bounded change and require a readable diff.
+7. Run technical and editorial checks.
+8. Publish only after human approval.
+9. Write the result and next measurement date into state.
+10. Repeat this manually for six cycles before automating discovery.
 
 By then, you will know which rules were missing, which signals were noisy and whether the loop saves more judgement than it consumes.
 
 ## The real takeaway
 
-SEO does not need another machine that can produce a thousand articles. It needs a feedback system that can notice one worthwhile opportunity, improve it carefully and admit when the evidence says “wait” or “stop”.
+SEO does not need another machine that can produce a thousand articles. It needs a feedback system that can notice one worthwhile opportunity, improve it carefully, measure the result and admit when the evidence says “wait” or “stop”.
 
 That is what loop engineering contributes: not infinite autonomy, but structured recurrence.
 
-The useful unit is not the article. It is the **evidence-backed decision**.
+The useful unit is not the article. It is the **evidence-backed decision**. Without a measurable outcome written back into state, there is no learning loop—only repeated automation.
 
 Build the loop around that, and AI can make SEO operations more consistent without turning the web into a landfill of confident text.
 
