@@ -12,7 +12,7 @@ export async function GET() {
   return rss({
     title: `${config.site.title}（中文）`,
     description:
-      "Nam Chan（又名 Alfred Nam）— Wistkey CTO。科技、IT、AI、商業、理財與瑜伽的中文文章。",
+      "Nam Chan（又名 Alfred Nam）— AceSpeak 共同創辦人兼 CIO，也是 Wistkey CTO。關於 AI、工程、創業、理財與瑜伽的中文文章。",
     site: config.site.url,
     customData: "<language>zh-hant</language>",
     items: sortedPosts.map(({ data, id, filePath }) => ({

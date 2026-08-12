@@ -64,13 +64,14 @@ export default {
   },
   hero: {
     title: "Hi, I'm Nam 👋",
-    tagline: "Nam Chan · aka Alfred Nam · CTO at Wistkey · London ⇄ Hong Kong",
-    rolePre: "I'm the CTO of ",
-    roleLink: "Wistkey",
+    tagline:
+      "Nam Chan · aka Alfred Nam · Co-founder & CIO at AceSpeak · CTO at Wistkey · London ⇄ Hong Kong",
+    rolePre: "I'm the co-founder and CIO of ",
+    roleLink: "AceSpeak",
     rolePost:
-      " — we engineer production AI for enterprise and government: private on-premises LLMs, multi-agent systems, and the engineering teams that ship them. Ten years of delivery across the UK and Hong Kong, on platforms now used by millions.",
+      " — an AI interview and public-speaking coach. From June to August 2026, we have been turning a shared dream into a real product: in the age of AI, help people rediscover — and enjoy — the joy of speaking. We are preparing for our late-August launch now.",
     writing:
-      "Most of my work now is helping companies adopt AI across the whole organisation — not just the tech department. I write here about what actually works: AI, tech, IT, business, finance, and the 4am Ashtanga practice that keeps it all sustainable.",
+      "I remain CTO of Wistkey, helping enterprises and government put AI into production. I write here about building AceSpeak, what actually works in AI and engineering, business, finance, and the 4am Ashtanga practice that keeps it all sustainable.",
     ctaProjects: "See my projects",
     ctaAbout: "More about me",
   },

@@ -13,6 +13,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    name: "AceSpeak",
+    url: "https://acespeak.uk",
+    role: {
+      en: "Co-founder & CIO · launching August 2026",
+      zh: "共同創辦人兼 CIO · 2026 年 8 月上線",
+    },
+    description: {
+      en: "An AI interview and public-speaking coach built to make practice specific, encouraging and worth repeating. Our dream is to help people rediscover the joy of speaking in the age of AI — one take and one useful change at a time.",
+      zh: "一位 AI 面試與公開演說教練，讓每次練習都有具體、友善而且值得重試的方向。我們的夢想，是在 AI 時代幫助人們重新找回說話的樂趣——每次練習，只專注一個有用的改變。",
+    },
+    note: {
+      en: "Built intensively from June to August 2026; preparing for a late-August launch.",
+      zh: "2026 年 6 月至 8 月密集打造，目前正為 8 月底正式上線做準備。",
+    },
+  },
+  {
     name: "Wistkey",
     url: "https://wistkey.com",
     role: { en: "CTO · day job", zh: "CTO · 正職" },

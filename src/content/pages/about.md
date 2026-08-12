@@ -1,13 +1,23 @@
 ---
 title: "About"
-description: "Nam Chan, aka Alfred Nam — CTO at Wistkey. I build production AI for enterprise and government: on-prem LLMs, multi-agent systems, and the teams that ship them. London ⇄ Hong Kong."
+description: "Nam Chan, aka Alfred Nam — co-founder and CIO of AceSpeak, and CTO at Wistkey. I build human-centred products and production AI. London ⇄ Hong Kong."
 ---
 
 <!-- Personal bio — based on Nam's own notes. Edit freely. -->
 
 Hi — I'm **Nam Chan** (陳冠南). Depending on where we met, you might also know me as **Alfred Nam**. I read Computer Science at **The Chinese University of Hong Kong**, and I've spent the decade since building software — first with my hands, then with teams, and now, increasingly, with agents. I live between **London and Hong Kong**.
 
-## What I do
+I'm the **co-founder and CIO of [AceSpeak](https://acespeak.uk)**, and the **CTO of [Wistkey](https://wistkey.com)**.
+
+## AceSpeak: our dream is getting close
+
+AceSpeak is an AI interview and public-speaking coach. A person uploads a video take and receives a delivery score with specific, encouraging guidance for the next one. The product is built around a simple practice rhythm: see what happened, change one thing, and try again.
+
+The larger dream is even simpler: **in the age of AI, help people rediscover — and enjoy — the joy of speaking.** AI can help write the words, but a real person still has to walk into the interview, stand up for the presentation, make the pitch, and say them.
+
+From June to August 2026, our team has been working intensely to turn that belief into a product people can actually use. Every test, retake, difficult product decision and honest piece of beta feedback has moved the dream a little closer. We are now preparing for a late-August launch. I am excited, grateful, and very aware that launch day will be the beginning of the work, not the end of it.
+
+## Wistkey and production AI
 
 I'm the **CTO of [Wistkey](https://wistkey.com)** — a London-headquartered engineering firm that builds and runs software for enterprise and government across the **UK and Hong Kong**. We're a partner, not a placement agency: we embed with our clients' teams and own the outcome alongside them.
 
@@ -45,7 +55,7 @@ I practise **Ashtanga yoga**, five to six mornings a week, at **4am London time 
 
 ## What I write about
 
-This blog is where I think out loud about **tech, IT, AI, business, finance and yoga** — practical AI adoption and on-prem LLMs, the craft of shipping software, building companies and making sense of money, and the practice that keeps me grounded. No hype, and I show the working.
+This blog is where I think out loud about **tech, IT, AI, business, finance and yoga** — building AceSpeak, practical AI adoption and on-prem LLMs, the craft of shipping software, building companies and making sense of money, and the practice that keeps me grounded. No hype, and I show the working.
 
 I write in **English and Traditional Chinese** — the 中 / EN toggle in the header switches between them.
 

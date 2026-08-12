@@ -5,7 +5,7 @@ export default defineAstroPaperConfig({
     url: "https://nam-ai.uk/",
     title: "Nam Chan",
     description:
-      "Nam Chan (aka Alfred Nam) — CTO at Wistkey, building production AI for enterprise and government: on-prem LLMs, multi-agent systems, and the teams that ship them. Writing on AI, tech, IT, business, finance & yoga. London ⇄ Hong Kong.",
+      "Nam Chan (aka Alfred Nam) — co-founder and CIO of AceSpeak, and CTO at Wistkey. Building human-centred AI products, production AI systems, and the teams that ship them. London ⇄ Hong Kong.",
     author: "Nam Chan",
     profile: "https://nam-ai.uk/about/",
     lang: "en",

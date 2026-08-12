@@ -11,14 +11,24 @@ const personLd = {
   name: "Nam Chan",
   alternateName: ["Alfred Nam", "Kwun Nam Chan", "陳冠南"],
   url: config.site.url,
-  jobTitle: "Chief Technology Officer",
+  jobTitle: [
+    "Co-founder and Chief Information Officer at AceSpeak",
+    "Chief Technology Officer at Wistkey",
+  ],
   description:
-    "CTO at Wistkey, building production AI for enterprise and government — private on-premises LLMs, multi-agent systems, and the engineering teams that ship them. Based between London and Hong Kong.",
-  worksFor: {
-    "@type": "Organization",
-    name: "Wistkey",
-    url: "https://wistkey.com",
-  },
+    "Co-founder and CIO of AceSpeak, and CTO at Wistkey. Building human-centred AI products and production AI systems between London and Hong Kong.",
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "AceSpeak",
+      url: "https://acespeak.uk",
+    },
+    {
+      "@type": "Organization",
+      name: "Wistkey",
+      url: "https://wistkey.com",
+    },
+  ],
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "The Chinese University of Hong Kong",
@@ -31,6 +41,7 @@ const personLd = {
     "On-premises AI deployment",
     "Retrieval-Augmented Generation",
     "Enterprise AI adoption",
+    "AI speaking practice",
     "Software engineering delivery",
   ],
   knowsLanguage: ["en", "zh-Hant"],

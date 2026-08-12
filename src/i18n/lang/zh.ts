@@ -62,13 +62,14 @@ export default {
   },
   hero: {
     title: "你好，我是 Nam 👋",
-    tagline: "Nam Chan · 又名 Alfred Nam · Wistkey CTO · 倫敦 ⇄ 香港",
+    tagline:
+      "Nam Chan · 又名 Alfred Nam · AceSpeak 共同創辦人兼 CIO · Wistkey CTO · 倫敦 ⇄ 香港",
     rolePre: "我是 ",
-    roleLink: "Wistkey",
+    roleLink: "AceSpeak",
     rolePost:
-      " 的 CTO——我們為企業與政府打造真正上線的 AI 系統：私有化部署的 LLM、多 Agent 系統，以及能把它們交付出去的工程團隊。十年交付經驗，橫跨英國與香港，做過的平台如今服務數以百萬計的使用者。",
+      " 的共同創辦人兼 CIO。2026 年 6 月到 8 月，我們努力把一個共同的夢想變成真正的產品：在 AI 時代，幫助人們重新找回並享受說話的樂趣。現在，我們正在為 8 月底正式上線做最後準備。",
     writing:
-      "我現在大部分的工作，是協助企業在整個組織導入 AI——不只是技術部門。我在這裡寫真正行得通的東西：AI、科技、IT、商業、理財，以及那個讓一切得以持續的清晨四點 Ashtanga 練習。",
+      "我同時仍是 Wistkey 的 CTO，協助企業與政府把 AI 真正投入正式環境。我在這裡分享打造 AceSpeak 的歷程、AI 與工程中真正行得通的方法、商業、理財，以及讓一切得以持續的清晨四點 Ashtanga 練習。",
     ctaProjects: "看看我的項目",
     ctaAbout: "更多關於我",
   },
