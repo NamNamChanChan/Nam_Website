@@ -1,114 +1,134 @@
 ---
-title: "Why I’m Proud to Be Building AceSpeak"
-description: "As CTO of AceSpeak, I’m proud to help build a project with a simple human purpose: bringing back the joy of speaking in the age of AI."
-pubDatetime: 2026-07-26T20:46:00+08:00
-ogImage: ../../../assets/images/why-i-love-building-acespeak-banner.png
+title: "Building AceSpeak: The Dream Is Almost Here"
+description: "From June to August 2026, we turned AceSpeak from a shared belief into a real beta. A co-founder and CIO’s note from the final stretch before launch."
+pubDatetime: 2026-08-12T18:30:00+08:00
+ogImage: ../../../assets/images/building-acespeak-summer-2026-banner.png
 draft: false
 tags:
   - ai
   - business
-  - life
 ---
 
-![Why I’m proud to build AceSpeak: a personal note from AceSpeak’s CTO](../../../assets/images/why-i-love-building-acespeak-banner.png)
+![Building the AceSpeak dream from June to August 2026: the final stretch before launch, by Nam Chan, co-founder and CIO](../../../assets/images/building-acespeak-summer-2026-banner.png)
 
-_Speaking stays human._
+From June to August 2026, **AceSpeak became the work that followed us everywhere**.
 
-I have spent much of my career thinking about what technology can make possible. Today, I want to write about something more personal: **I am proud to be working as CTO of AceSpeak.**
+It was there in the first thought of the morning and the last conversation at night. It was in every test take, every piece of beta feedback, every sentence we rewrote because it did not yet feel kind or clear enough, and every small decision that made the product feel a little more like the one we had imagined.
 
-I am not going to discuss how we build the product. This is not a technical deep dive, a launch note, or a list of features. It is about the reason AceSpeak deserves to exist—and why that reason matters so much to me.
+Now we are in the final stretch. Our official launch target is **26 August 2026**.
+
+As **co-founder and CIO of AceSpeak**, I feel excited, proud, tired in the honest way, and deeply grateful. This is the first time I have written about AceSpeak on my personal website, and I want to record what these months have meant before launch day turns them into a neat story with a beginning and an ending.
+
+The real version has been much messier—and much more meaningful.
 
 ## Table of contents
 
-## The moment after AI has finished writing
+## The dream underneath the product
 
-AI can help us find words. It can suggest an opening, reorganise an argument, or turn a rough thought into a clearer answer.
+AceSpeak began with a belief that feels more important every month: **in the age of AI, speaking is what stays human**.
 
-Then comes the part it cannot do for us.
+AI can help us find the words. It can reorganise an answer, sharpen a pitch, or help us prepare for a difficult conversation. But eventually we have to look up from the screen. We still have to walk into the interview, stand in front of the room, join the call, or tell another person what we believe.
 
-We still have to look up from the screen. We still have to enter the interview, stand in front of the room, join the call, or begin the conversation. We have to decide how to use our voice, when to pause, and whether to trust what we want to say.
+Only we can do that part.
 
-That handover—from generated words to a human voice—is where AceSpeak begins.
-
-This is what drew me to the project. It starts with a very modern reality, but it leads back to something ancient and deeply human: one person trying to communicate with another.
-
-![AceSpeak’s belief that AI can write the words, but only a person can say them](../../../assets/images/why-i-love-building-acespeak-speaking-stays-human.png)
-
-_AI can help with the words. Presence, expression and meaning still belong to the speaker._
-
-## Our vision: bring back the joy of speaking
-
-AceSpeak’s vision is to help people rediscover—and enjoy—the joy of speaking in the age of AI.
-
-The word **joy** matters.
-
-Speaking is often treated as a test. An interview feels like judgement. A presentation feels like exposure. A pitch feels like one chance to get everything right. When practice carries that same pressure, it is easy to avoid it until the moment arrives.
-
-We want a different relationship with speaking: one built on curiosity, play and progress. Practice should feel like a place where trying again is normal. A pause should be something to explore, not a reason for embarrassment. A second take should feel like another chance, not evidence that the first one failed.
-
-Joy does not mean that every speech is easy. It means the process can contain discovery. It means people can notice themselves improving. It means speaking can become something they want to return to, rather than something they only endure when necessary.
+Our dream is to help people rediscover—and enjoy—the joy of speaking. Not simply to perform better in one important moment, but to build a healthier relationship with practice itself. We want another take to feel like an opportunity, not a punishment; a pause to feel like something to explore, not something to hide.
 
 ![AceSpeak’s vision to help people rediscover the joy of speaking, one take at a time](../../../assets/images/why-i-love-building-acespeak-joy-of-speaking.png)
 
-_The ambition is not simply better performance. It is a healthier and more enjoyable relationship with speaking._
+*The dream is bigger than a score: help people enjoy using a voice that remains unmistakably their own.*
 
-## Our mission: make practice feel possible
+That is the idea we carried into June. By August, it had to survive contact with a real product, real people and real feedback.
 
-A vision becomes useful only when it changes what a person can do next.
+## Turning a belief into something people can use
 
-Our mission is to make speaking practice visible, specific and enjoyable enough to repeat. At its heart is a gentle loop: notice what happened, choose one useful change, and try again.
+AceSpeak is an AI interview and public-speaking coach. A person uploads a video take and receives a delivery score with specific, actionable guidance for the next one.
 
-That may sound simple. I believe its simplicity is a strength.
+The product loop is deliberately simple: **see what happened, choose one useful change, and try again**.
 
-People rarely need another voice telling them that everything was wrong. They need a clear place to begin. Progress becomes less intimidating when the next step is small enough to attempt and meaningful enough to notice.
+Making that loop feel simple has not been simple work.
 
-That is the kind of practice experience I want AceSpeak to represent: encouraging without being vague, professional without being stiff, and playful without becoming childish. It should respect the seriousness of the moment someone is preparing for while making the preparation itself feel lighter.
+The difficult part was never adding as much as possible. It was deciding what deserved the person's attention next. Feedback had to be honest without becoming harsh, specific without becoming clinical, and encouraging without praising something that did not happen. The technology had to stay in the background so the speaker—not the system—remained the point.
 
-It should also be kind. Speaking is personal. A product in this space should never make someone feel smaller in the name of helping them improve.
+These sound like writing decisions, design decisions and product decisions because they are all three. They are also trust decisions. Speaking is personal. When someone uploads a practice take, we have a responsibility to treat both the person and the information they share with care.
 
-> [!important] The principle I want us to protect
-> Technology should stay in the background. The person should feel more present, not less.
+That responsibility is a large part of what the **CIO** role means to me. It is not only about systems and information moving correctly. It is about making sure the way we learn, decide and build remains aligned with the promise we made to the person using the product.
 
-## Why I love this project
+## June to August: build, listen, change, repeat
 
-I love AceSpeak because its purpose is human before it is technological.
+The last three months have had their own version of the AceSpeak loop.
 
-The project asks a question I care about: **can technology help people express more of themselves without taking their place?**
+We built. People tried it. They told us what felt useful, what felt confusing and what would make them want to practise again. Then we changed the product and put it back in their hands.
 
-For me, the best answer is not a machine that speaks on someone’s behalf. It is a person who feels more ready to speak in their own voice.
+Two weeks of beta feedback, for example, helped shape a head-to-head battle mode, richer profiles and personalised 30-day insights. Those features matter, but the deeper lesson matters more: **the product became better when we stopped treating feedback as a final review and made it part of the build itself**.
 
-I also love that progress here can be small and still matter. One calmer opening. One pause that gives an idea room to land. One more attempt made with less hesitation. These changes may look modest from the outside, but they can alter how someone enters an important moment.
+![AceSpeak feedback loop showing “You said”, “We built” and features now live in the app](../../../assets/images/building-acespeak-summer-2026-feedback.png)
 
-I love the balance we are trying to hold. AceSpeak should be credible enough for interviews, presentations and pitches, yet joyful enough that practice does not feel like punishment. Professional and playful are not opposites when both serve the learner.
+*The beta was not a waiting room for launch. It became part of how we built.*
 
-Most of all, I love that the project refuses a bleak version of the AI future. As machines become better at producing language, human expression does not become less valuable. It becomes more important. The words may be polished by software, but courage, timing, humour, warmth and conviction still arrive through a person.
+Working hard did not mean chasing motion for its own sake. It meant returning to small details until they carried the right intention. It meant testing the same journey again after a change that looked tiny on paper. It meant listening without defending the first version. It meant saying no to ideas that were exciting but did not make the next practice take clearer.
 
-That is worth building for.
+Some days the visible progress was a new capability. On other days, the win was one confusing sentence becoming understandable. Both kinds of work counted.
 
-## What being CTO means to me
+## The people who made the beta real
 
-Being CTO is usually described through systems, decisions and delivery. Those responsibilities matter, but they are not the part I want to celebrate here.
+As of **8 August**, 146 people had joined the AceSpeak beta.
 
-For me, this role also means protecting the intention behind the product.
+That number matters to me not because it looks impressive on a slide, but because every person represents trust. They gave an unfinished product their time. They uploaded takes, tried new ideas and told us the truth when something was not working.
 
-It means asking whether each decision brings us closer to the experience we promised. Does this make practice clearer? Does it encourage another useful attempt? Does it preserve dignity? Does it leave the speaker feeling that the achievement belongs to them?
+Friends and family helped especially early, when the experience needed patience as much as feedback. Later testers brought fresh eyes and questions we had become too close to see. Together, they changed the product in ways our team could not have produced alone.
 
-Those questions are not technical details. They are the reason the details matter at all.
+To everyone who tested, retested, sent a screenshot, explained a confusing moment or simply encouraged us: **thank you**. AceSpeak is more real because you treated it as something worth helping.
 
-I am proud to work on a project where success is not defined by making the human disappear. It is defined by helping the human step forward.
+This is also why launch does not feel like a solo founder moment to me. A product may have co-founders, but it reaches reality through a much wider group of people who lend it attention before the rest of the world does.
 
-## The future I hope we help create
+## What being a co-founder and CIO means here
 
-I hope AceSpeak becomes part of a world where practising your voice feels as normal as editing your words.
+I have spent years as a CTO thinking about delivery: architecture, teams, risk, production systems and the decisions that keep them working.
 
-I hope a job seeker can enter an interview feeling that their ideas have room to be heard. I hope a founder can approach a pitch with curiosity instead of dread. I hope someone preparing a presentation can see another take as progress rather than punishment.
+AceSpeak asks me to bring that experience into a different kind of leadership. As co-founder and CIO, I have to connect the vision to the information we receive every day. What are people actually doing? Where are they getting stuck? Which signal should change the roadmap, and which one needs more context? Are we making the product more useful without making the person less visible?
 
-And I hope that, in an age full of generated language, more people rediscover the pleasure of saying something in a way that is unmistakably their own.
+I also have to protect the dream from becoming a slogan.
 
-That is AceSpeak’s vision. It is our mission. And it is why I am so proud to be building it.
+“Bring back the joy of speaking” only means something if it changes the details. It should affect the tone of a tip, the amount of information shown at once, the way progress is framed and whether the product invites another attempt. A vision earns its place when it helps a team decide what to build—and what not to build—on an ordinary Tuesday.
 
-_If that vision resonates with you, you can learn more about [AceSpeak](https://acespeak.uk)—and, more importantly, keep practising the voice that only you can bring._
+That is the work I am proud to share with this team.
+
+## 26 August is a target, not a finish line
+
+Our beta is scheduled to close on **23 August 2026**. Our official launch target is **26 August 2026**.
+
+![AceSpeak launch timeline: beta closes 23 August and official launch is targeted for 26 August 2026](../../../assets/images/building-acespeak-summer-2026-launch-dates.png)
+
+*Two dates we have been working towards: beta close on 23 August, official launch target on 26 August.*
+
+I have imagined launch day many times. Of course I want to celebrate it. Our team has worked intensely for this moment, and the dream we have been carrying since June is close enough to touch.
+
+But launch is not proof that the dream is complete. It is the day we invite more people into it.
+
+There will be more feedback, more difficult choices and probably more things that behave differently in the real world than they did in our careful tests. That does not make the launch less exciting. It makes it honest. A startup becomes real not when the work ends, but when the work begins to matter to people beyond the team.
+
+## What I want us to protect after launch
+
+When the pace is high, it is useful to write down the things that should not be traded away:
+
+- **The person remains the point.** AI should help someone become more present, not speak in their place.
+- **One useful change beats a wall of judgement.** Practice becomes repeatable when the next step feels possible.
+- **Kindness and honesty belong together.** Encouragement should be real, and correction should preserve dignity.
+- **Listening is part of building.** Beta feedback shaped AceSpeak before launch; that habit must continue afterwards.
+- **Joy is a product requirement.** If practice feels like punishment, we have missed the vision no matter how sophisticated the system is.
+
+These principles are not launch copy. They are commitments I want us to be measured against.
+
+## The dream is almost here
+
+June feels both very recent and very far away. We began this stretch with a belief about the future of human expression. We are approaching the end of August with a product, a growing community of early testers and a date circled on the calendar.
+
+I am proud to be AceSpeak's co-founder and CIO. I am proud of how hard our team has worked, and even prouder that the work has kept returning to something human.
+
+AI will keep getting better at writing words. Our voices will still be ours to use.
+
+That is the dream behind [AceSpeak](https://acespeak.uk). On 26 August, we hope to take its next real step.
 
 ---
 
-_For more practical notes on AI, products and the human decisions behind them, [follow me on Medium](https://nam0403.medium.com/), [subscribe or bookmark nam-ai.uk](https://nam-ai.uk), or [connect with me on LinkedIn](https://www.linkedin.com/in/nam-chan/)—I am always interested in what technology helps people become._
+*If you want to follow what we are building, visit [AceSpeak](https://acespeak.uk), [connect with me on LinkedIn](https://www.linkedin.com/in/nam-chan/), or [follow me on Medium](https://nam0403.medium.com/). I will keep sharing what launch teaches us after the celebration is over.*
