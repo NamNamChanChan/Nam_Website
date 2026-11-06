@@ -34,3 +34,6 @@ compose.override.yaml
 
 # Medium copy-paste exports (regenerable from posts via the new-blog-post skill)
 medium-exports/
+
+# raw photo originals kept beside blog source notes (web copies live in src/assets/images)
+blog-sources/*/originals/
